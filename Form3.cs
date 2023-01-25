@@ -27,7 +27,7 @@ namespace DonanımTeknoloji
             ModulleriGetir();
             FirmalariGetir();
             KullaniciGetir();
-        }sss
+        }
         private void KullaniciGetir()
         {
             komut = new SqlCommand("SELECT KullaniciAdi FROM Kullanici");
