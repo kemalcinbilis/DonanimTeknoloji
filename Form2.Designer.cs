@@ -502,7 +502,7 @@ namespace DonanımTeknoloji
             // 
             // btn_Filtre
             // 
-            this.btn_Filtre.Location = new System.Drawing.Point(1662, 143);
+            this.btn_Filtre.Location = new System.Drawing.Point(1650, 143);
             this.btn_Filtre.Name = "btn_Filtre";
             this.btn_Filtre.Size = new System.Drawing.Size(250, 29);
             this.btn_Filtre.TabIndex = 26;
@@ -513,7 +513,7 @@ namespace DonanımTeknoloji
             // lbl_BaslangicTarihi
             // 
             this.lbl_BaslangicTarihi.AutoSize = true;
-            this.lbl_BaslangicTarihi.Location = new System.Drawing.Point(1584, 82);
+            this.lbl_BaslangicTarihi.Location = new System.Drawing.Point(1572, 82);
             this.lbl_BaslangicTarihi.Name = "lbl_BaslangicTarihi";
             this.lbl_BaslangicTarihi.Size = new System.Drawing.Size(72, 20);
             this.lbl_BaslangicTarihi.TabIndex = 27;
@@ -522,7 +522,7 @@ namespace DonanımTeknoloji
             // lbl_BitisTarihi
             // 
             this.lbl_BitisTarihi.AutoSize = true;
-            this.lbl_BitisTarihi.Location = new System.Drawing.Point(1619, 110);
+            this.lbl_BitisTarihi.Location = new System.Drawing.Point(1607, 110);
             this.lbl_BitisTarihi.Name = "lbl_BitisTarihi";
             this.lbl_BitisTarihi.Size = new System.Drawing.Size(37, 20);
             this.lbl_BitisTarihi.TabIndex = 28;
@@ -530,14 +530,14 @@ namespace DonanımTeknoloji
             // 
             // dtp_BaslangicTarihi
             // 
-            this.dtp_BaslangicTarihi.Location = new System.Drawing.Point(1662, 77);
+            this.dtp_BaslangicTarihi.Location = new System.Drawing.Point(1650, 77);
             this.dtp_BaslangicTarihi.Name = "dtp_BaslangicTarihi";
             this.dtp_BaslangicTarihi.Size = new System.Drawing.Size(250, 27);
             this.dtp_BaslangicTarihi.TabIndex = 29;
             // 
             // dtp_BitisTarihi
             // 
-            this.dtp_BitisTarihi.Location = new System.Drawing.Point(1662, 110);
+            this.dtp_BitisTarihi.Location = new System.Drawing.Point(1650, 110);
             this.dtp_BitisTarihi.Name = "dtp_BitisTarihi";
             this.dtp_BitisTarihi.Size = new System.Drawing.Size(250, 27);
             this.dtp_BitisTarihi.TabIndex = 30;
@@ -547,7 +547,7 @@ namespace DonanımTeknoloji
             this.cb_Firma.FormattingEnabled = true;
             this.cb_Firma.Items.AddRange(new object[] {
             "GENEL"});
-            this.cb_Firma.Location = new System.Drawing.Point(1662, 38);
+            this.cb_Firma.Location = new System.Drawing.Point(1650, 38);
             this.cb_Firma.Name = "cb_Firma";
             this.cb_Firma.Size = new System.Drawing.Size(250, 28);
             this.cb_Firma.TabIndex = 31;
@@ -555,7 +555,7 @@ namespace DonanımTeknoloji
             // lbl_Firma
             // 
             this.lbl_Firma.AutoSize = true;
-            this.lbl_Firma.Location = new System.Drawing.Point(1603, 41);
+            this.lbl_Firma.Location = new System.Drawing.Point(1591, 41);
             this.lbl_Firma.Name = "lbl_Firma";
             this.lbl_Firma.Size = new System.Drawing.Size(46, 20);
             this.lbl_Firma.TabIndex = 32;

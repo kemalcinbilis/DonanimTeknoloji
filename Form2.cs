@@ -46,6 +46,7 @@ namespace DonanımTeknoloji
             lbl_Durum.Text = verial;
             ModulleriGetir();
             FirmalariGetir();
+            cb_Firma.Text = "GENEL";
 
 
             cb_FirmaAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -63,6 +64,10 @@ namespace DonanımTeknoloji
             cb_FirmaSifre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cb_FirmaSifre.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cb_FirmaSifre.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            cb_İslemDurumu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cb_İslemDurumu.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_İslemDurumu.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             tabloDoldur();
             tabloDoldur2();
@@ -178,6 +183,9 @@ namespace DonanımTeknoloji
         {
             temizle();
             tabloDoldur();
+            cb_Firma.Text = "";
+            dtp_BaslangicTarihi.Value = DateTime.Now;
+            dtp_BitisTarihi.Value = DateTime.Now;
         }
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -236,7 +244,7 @@ namespace DonanımTeknoloji
                 baglanti.Open();
                 da.Fill(ds, "İslemEkrani");
                 dataGridView1.DataSource = ds.Tables["İslemEkrani"];
-                baglanti.Close();
+                baglanti.Close();          
             }
             else
             {
@@ -246,12 +254,12 @@ namespace DonanımTeknoloji
                 da.Fill(ds, "İslemEkrani");
                 dataGridView1.DataSource = ds.Tables["İslemEkrani"];
                 baglanti.Close();
-                //SqlDataAdapter da = new SqlDataAdapter("Select ID, FirmaAdi as Firma , ModulAdi as Modül , GorusulenKisi as Yetkili, Tarih as Tarih, Aciklama as Açıklama, İslemDurumu as Durum from İslemEkrani WHERE KullaniciAdi ='"+lbl_Durum+"' and FirmaAdi = '"+cb_Firma.Text+"' and Tarih between '"+dtp_BaslangicTarihi.Value.ToString("yyyy-MM-dd") + "' and '"+dtp_BitisTarihi.Value.ToString("yyyy-MM-dd") + "'", baglanti);
-                //DataSet ds = new DataSet();
-                //baglanti.Open();
-                //da.Fill(ds, "İslemEkrani");
-                //dataGridView1.DataSource = ds.Tables[0];
-                //baglanti.Close();
+                    //SqlDataAdapter da = new SqlDataAdapter("Select ID, FirmaAdi as Firma , ModulAdi as Modül , GorusulenKisi as Yetkili, Tarih as Tarih, Aciklama as Açıklama, İslemDurumu as Durum from İslemEkrani WHERE KullaniciAdi ='"+lbl_Durum+"' and FirmaAdi = '"+cb_Firma.Text+"' and Tarih between '"+dtp_BaslangicTarihi.Value.ToString("yyyy-MM-dd") + "' and '"+dtp_BitisTarihi.Value.ToString("yyyy-MM-dd") + "'", baglanti);
+                    //DataSet ds = new DataSet();
+                    //baglanti.Open();
+                    //da.Fill(ds, "İslemEkrani");
+                    //dataGridView1.DataSource = ds.Tables[0];
+                    //baglanti.Close();
             }
 
         }

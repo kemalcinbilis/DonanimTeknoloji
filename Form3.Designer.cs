@@ -48,19 +48,17 @@ namespace DonanımTeknoloji
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_Kullanici = new System.Windows.Forms.Label();
             this.lbl_DurumAdminPanel = new System.Windows.Forms.Label();
-            this.lbl_İslemDurumu = new System.Windows.Forms.Label();
-            this.cb_İslemDurumu = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lbl_FirmaAdi = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.cb_FirmaAdi = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.lbl_Danisman = new System.Windows.Forms.Label();
             this.dtp_BasTarih = new System.Windows.Forms.DateTimePicker();
             this.lbl_basTarih = new System.Windows.Forms.Label();
-            this.lbl_Modül = new System.Windows.Forms.Label();
-            this.cb_Modül = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.KontrolUser = new System.Windows.Forms.CheckBox();
+            this.btn_Temizle = new System.Windows.Forms.Button();
+            this.Kontrol = new System.Windows.Forms.CheckBox();
+            this.btn_Sifirla = new System.Windows.Forms.Button();
             this.cb_Danisman = new System.Windows.Forms.ComboBox();
             this.dtp_BitTarih = new System.Windows.Forms.DateTimePicker();
             this.lbl_bitTarih = new System.Windows.Forms.Label();
@@ -228,29 +226,6 @@ namespace DonanımTeknoloji
             this.lbl_DurumAdminPanel.TabIndex = 37;
             this.lbl_DurumAdminPanel.Text = "Kullanıcı";
             // 
-            // lbl_İslemDurumu
-            // 
-            this.lbl_İslemDurumu.AutoSize = true;
-            this.lbl_İslemDurumu.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_İslemDurumu.Location = new System.Drawing.Point(74, 396);
-            this.lbl_İslemDurumu.Name = "lbl_İslemDurumu";
-            this.lbl_İslemDurumu.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl_İslemDurumu.Size = new System.Drawing.Size(121, 20);
-            this.lbl_İslemDurumu.TabIndex = 24;
-            this.lbl_İslemDurumu.Text = "İslem Durumu";
-            // 
-            // cb_İslemDurumu
-            // 
-            this.cb_İslemDurumu.FormattingEnabled = true;
-            this.cb_İslemDurumu.Items.AddRange(new object[] {
-            "TAMAMLANDI",
-            "TAMAMLANMADI",
-            "BEKLEMEDE"});
-            this.cb_İslemDurumu.Location = new System.Drawing.Point(248, 393);
-            this.cb_İslemDurumu.Name = "cb_İslemDurumu";
-            this.cb_İslemDurumu.Size = new System.Drawing.Size(392, 28);
-            this.cb_İslemDurumu.TabIndex = 6;
-            // 
             // dataGridView1
             // 
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
@@ -284,50 +259,32 @@ namespace DonanımTeknoloji
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(1218, 756);
             this.dataGridView1.TabIndex = 22;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // lbl_FirmaAdi
             // 
             this.lbl_FirmaAdi.AutoSize = true;
             this.lbl_FirmaAdi.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_FirmaAdi.Location = new System.Drawing.Point(108, 74);
+            this.lbl_FirmaAdi.Location = new System.Drawing.Point(134, 116);
             this.lbl_FirmaAdi.Name = "lbl_FirmaAdi";
             this.lbl_FirmaAdi.Size = new System.Drawing.Size(87, 20);
             this.lbl_FirmaAdi.TabIndex = 0;
             this.lbl_FirmaAdi.Text = "Firma Adı";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(649, 205);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 20);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "*";
-            // 
             // cb_FirmaAdi
             // 
+            this.cb_FirmaAdi.Enabled = false;
             this.cb_FirmaAdi.FormattingEnabled = true;
-            this.cb_FirmaAdi.Location = new System.Drawing.Point(248, 68);
+            this.cb_FirmaAdi.Location = new System.Drawing.Point(227, 113);
             this.cb_FirmaAdi.Name = "cb_FirmaAdi";
             this.cb_FirmaAdi.Size = new System.Drawing.Size(392, 28);
             this.cb_FirmaAdi.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(649, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 20);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "*";
             // 
             // lbl_Danisman
             // 
             this.lbl_Danisman.AutoSize = true;
             this.lbl_Danisman.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Danisman.Location = new System.Drawing.Point(86, 136);
+            this.lbl_Danisman.Location = new System.Drawing.Point(134, 63);
             this.lbl_Danisman.Name = "lbl_Danisman";
             this.lbl_Danisman.Size = new System.Drawing.Size(87, 20);
             this.lbl_Danisman.TabIndex = 2;
@@ -335,7 +292,7 @@ namespace DonanımTeknoloji
             // 
             // dtp_BasTarih
             // 
-            this.dtp_BasTarih.Location = new System.Drawing.Point(248, 267);
+            this.dtp_BasTarih.Location = new System.Drawing.Point(227, 163);
             this.dtp_BasTarih.Name = "dtp_BasTarih";
             this.dtp_BasTarih.Size = new System.Drawing.Size(392, 27);
             this.dtp_BasTarih.TabIndex = 4;
@@ -345,49 +302,29 @@ namespace DonanımTeknoloji
             // 
             this.lbl_basTarih.AutoSize = true;
             this.lbl_basTarih.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_basTarih.Location = new System.Drawing.Point(62, 272);
+            this.lbl_basTarih.Location = new System.Drawing.Point(96, 168);
             this.lbl_basTarih.Name = "lbl_basTarih";
             this.lbl_basTarih.Size = new System.Drawing.Size(133, 20);
             this.lbl_basTarih.TabIndex = 5;
             this.lbl_basTarih.Text = "Başlangıç Tarihi";
             // 
-            // lbl_Modül
-            // 
-            this.lbl_Modül.AutoSize = true;
-            this.lbl_Modül.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Modül.Location = new System.Drawing.Point(92, 205);
-            this.lbl_Modül.Name = "lbl_Modül";
-            this.lbl_Modül.Size = new System.Drawing.Size(81, 20);
-            this.lbl_Modül.TabIndex = 6;
-            this.lbl_Modül.Text = "Modüller";
-            // 
-            // cb_Modül
-            // 
-            this.cb_Modül.FormattingEnabled = true;
-            this.cb_Modül.Location = new System.Drawing.Point(248, 202);
-            this.cb_Modül.Name = "cb_Modül";
-            this.cb_Modül.Size = new System.Drawing.Size(392, 28);
-            this.cb_Modül.TabIndex = 3;
-            // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tabPage1.Controls.Add(this.KontrolUser);
+            this.tabPage1.Controls.Add(this.btn_Temizle);
+            this.tabPage1.Controls.Add(this.Kontrol);
+            this.tabPage1.Controls.Add(this.btn_Sifirla);
             this.tabPage1.Controls.Add(this.cb_Danisman);
             this.tabPage1.Controls.Add(this.dtp_BitTarih);
             this.tabPage1.Controls.Add(this.lbl_bitTarih);
             this.tabPage1.Controls.Add(this.lbl_ID);
-            this.tabPage1.Controls.Add(this.lbl_İslemDurumu);
-            this.tabPage1.Controls.Add(this.cb_İslemDurumu);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.lbl_FirmaAdi);
-            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.cb_FirmaAdi);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.lbl_Danisman);
             this.tabPage1.Controls.Add(this.dtp_BasTarih);
             this.tabPage1.Controls.Add(this.lbl_basTarih);
-            this.tabPage1.Controls.Add(this.lbl_Modül);
-            this.tabPage1.Controls.Add(this.cb_Modül);
             this.tabPage1.Controls.Add(this.btn_Arama);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
@@ -396,17 +333,58 @@ namespace DonanımTeknoloji
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Görüşme Kaydı";
             // 
+            // KontrolUser
+            // 
+            this.KontrolUser.AutoSize = true;
+            this.KontrolUser.Location = new System.Drawing.Point(110, 66);
+            this.KontrolUser.Name = "KontrolUser";
+            this.KontrolUser.Size = new System.Drawing.Size(18, 17);
+            this.KontrolUser.TabIndex = 32;
+            this.KontrolUser.UseVisualStyleBackColor = true;
+            this.KontrolUser.CheckedChanged += new System.EventHandler(this.KontrolUser_CheckedChanged);
+            // 
+            // btn_Temizle
+            // 
+            this.btn_Temizle.Location = new System.Drawing.Point(454, 482);
+            this.btn_Temizle.Name = "btn_Temizle";
+            this.btn_Temizle.Size = new System.Drawing.Size(129, 29);
+            this.btn_Temizle.TabIndex = 31;
+            this.btn_Temizle.Text = "Temizle";
+            this.btn_Temizle.UseVisualStyleBackColor = true;
+            this.btn_Temizle.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Kontrol
+            // 
+            this.Kontrol.AutoSize = true;
+            this.Kontrol.Location = new System.Drawing.Point(110, 119);
+            this.Kontrol.Name = "Kontrol";
+            this.Kontrol.Size = new System.Drawing.Size(18, 17);
+            this.Kontrol.TabIndex = 30;
+            this.Kontrol.UseVisualStyleBackColor = true;
+            this.Kontrol.CheckedChanged += new System.EventHandler(this.Kontrol_CheckedChanged);
+            // 
+            // btn_Sifirla
+            // 
+            this.btn_Sifirla.Location = new System.Drawing.Point(454, 446);
+            this.btn_Sifirla.Name = "btn_Sifirla";
+            this.btn_Sifirla.Size = new System.Drawing.Size(129, 29);
+            this.btn_Sifirla.TabIndex = 29;
+            this.btn_Sifirla.Text = "Tabloyu sıfırla";
+            this.btn_Sifirla.UseVisualStyleBackColor = true;
+            this.btn_Sifirla.Click += new System.EventHandler(this.btn_Sifirla_Click);
+            // 
             // cb_Danisman
             // 
+            this.cb_Danisman.Enabled = false;
             this.cb_Danisman.FormattingEnabled = true;
-            this.cb_Danisman.Location = new System.Drawing.Point(248, 133);
+            this.cb_Danisman.Location = new System.Drawing.Point(227, 60);
             this.cb_Danisman.Name = "cb_Danisman";
             this.cb_Danisman.Size = new System.Drawing.Size(392, 28);
             this.cb_Danisman.TabIndex = 28;
             // 
             // dtp_BitTarih
             // 
-            this.dtp_BitTarih.Location = new System.Drawing.Point(248, 332);
+            this.dtp_BitTarih.Location = new System.Drawing.Point(227, 213);
             this.dtp_BitTarih.Name = "dtp_BitTarih";
             this.dtp_BitTarih.Size = new System.Drawing.Size(392, 27);
             this.dtp_BitTarih.TabIndex = 26;
@@ -416,7 +394,7 @@ namespace DonanımTeknoloji
             // 
             this.lbl_bitTarih.AutoSize = true;
             this.lbl_bitTarih.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_bitTarih.Location = new System.Drawing.Point(79, 337);
+            this.lbl_bitTarih.Location = new System.Drawing.Point(127, 218);
             this.lbl_bitTarih.Name = "lbl_bitTarih";
             this.lbl_bitTarih.Size = new System.Drawing.Size(94, 20);
             this.lbl_bitTarih.TabIndex = 27;
@@ -428,9 +406,9 @@ namespace DonanımTeknoloji
             this.btn_Arama.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Arama.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Arama.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Arama.Location = new System.Drawing.Point(125, 515);
+            this.btn_Arama.Location = new System.Drawing.Point(186, 327);
             this.btn_Arama.Name = "btn_Arama";
-            this.btn_Arama.Size = new System.Drawing.Size(480, 69);
+            this.btn_Arama.Size = new System.Drawing.Size(397, 81);
             this.btn_Arama.TabIndex = 7;
             this.btn_Arama.Text = "ARA";
             this.btn_Arama.UseVisualStyleBackColor = false;
@@ -509,18 +487,12 @@ namespace DonanımTeknoloji
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lbl_Kullanici;
         private System.Windows.Forms.Label lbl_DurumAdminPanel;
-        private System.Windows.Forms.Label lbl_İslemDurumu;
-        private System.Windows.Forms.ComboBox cb_İslemDurumu;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lbl_FirmaAdi;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cb_FirmaAdi;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_Danisman;
         private System.Windows.Forms.DateTimePicker dtp_BasTarih;
         private System.Windows.Forms.Label lbl_basTarih;
-        private System.Windows.Forms.Label lbl_Modül;
-        private System.Windows.Forms.ComboBox cb_Modül;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox cb_Danisman;
         private System.Windows.Forms.DateTimePicker dtp_BitTarih;
@@ -529,5 +501,9 @@ namespace DonanımTeknoloji
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button btn_Sifirla;
+        private System.Windows.Forms.CheckBox Kontrol;
+        private System.Windows.Forms.Button btn_Temizle;
+        private System.Windows.Forms.CheckBox KontrolUser;
     }
 }
