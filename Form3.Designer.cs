@@ -41,6 +41,7 @@ namespace DonanımTeknoloji
             this.lbl_ID = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_FirmaID = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rb_Ekle = new System.Windows.Forms.RadioButton();
             this.rb_Güncelle = new System.Windows.Forms.RadioButton();
@@ -127,6 +128,7 @@ namespace DonanımTeknoloji
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.groupBox1.Controls.Add(this.lbl_FirmaID);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.btn_Uygula);
             this.groupBox1.Controls.Add(this.tbNetsisSifresi);
@@ -156,6 +158,15 @@ namespace DonanımTeknoloji
             this.groupBox1.Size = new System.Drawing.Size(1880, 347);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // lbl_FirmaID
+            // 
+            this.lbl_FirmaID.AutoSize = true;
+            this.lbl_FirmaID.Location = new System.Drawing.Point(37, 39);
+            this.lbl_FirmaID.Name = "lbl_FirmaID";
+            this.lbl_FirmaID.Size = new System.Drawing.Size(15, 20);
+            this.lbl_FirmaID.TabIndex = 22;
+            this.lbl_FirmaID.Text = "*";
             // 
             // groupBox2
             // 
@@ -376,12 +387,13 @@ namespace DonanımTeknoloji
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(0, 318);
+            this.button1.Location = new System.Drawing.Point(-3, 312);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 29);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Tabloyu Sıfırla";
+            this.button1.Text = "Tabloyu Yenile";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_Ara
             // 
@@ -630,7 +642,7 @@ namespace DonanımTeknoloji
             this.btn_Sifirla.Name = "btn_Sifirla";
             this.btn_Sifirla.Size = new System.Drawing.Size(134, 29);
             this.btn_Sifirla.TabIndex = 29;
-            this.btn_Sifirla.Text = "Tabloyu Sıfırla";
+            this.btn_Sifirla.Text = "Tabloyu Yenile";
             this.btn_Sifirla.UseVisualStyleBackColor = true;
             this.btn_Sifirla.Click += new System.EventHandler(this.btn_Sifirla_Click);
             // 
@@ -792,5 +804,6 @@ namespace DonanımTeknoloji
         private System.Windows.Forms.RadioButton rb_Sil;
         private System.Windows.Forms.RadioButton rb_Ekle;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lbl_FirmaID;
     }
 }

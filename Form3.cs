@@ -212,16 +212,23 @@ namespace DonanımTeknoloji
         }
         private void btn_Ara_Click(object sender, EventArgs e)
         {
+            
+            SqlDataAdapter da = new SqlDataAdapter("Select * from SifreTable Where FirmaAdi = '"+cb_FirmaSifre.Text+"'",baglanti);
+            DataSet ds = new DataSet();
+            baglanti.Open();
+            da.Fill(ds, "SifreTable");
+            dataGridView2.DataSource = ds.Tables[0];
+            baglanti.Close();
 
         }
         private void btn_Uygula_Click(object sender, EventArgs e)
         {
-            if(rb_Ekle.Checked = true)
-            {
 
-            }
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tabloDoldur2();
+        }
     }
 }
