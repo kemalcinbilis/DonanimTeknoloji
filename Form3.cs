@@ -17,7 +17,6 @@ namespace DonanımTeknoloji
         SqlDataReader dr;
         SqlDataAdapter da;
         DataSet ds;
-
         public Form3()
         {
             InitializeComponent();
@@ -38,8 +37,7 @@ namespace DonanımTeknoloji
 
             cb_Danisman.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cb_Danisman.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cb_Danisman.AutoCompleteSource = AutoCompleteSource.ListItems;
-
+            cb_Danisman.AutoCompleteSource = AutoCompleteSource.ListItems; 
         }
         private void KullaniciGetir()
         {
@@ -99,7 +97,7 @@ namespace DonanımTeknoloji
         }
         private void tabloDoldur2()
         {
-            SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk , SifreTable.AnyDeskSifre as 'AnyDesk Şifresi', SifreTable.Server, " +
+            SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID,Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk , SifreTable.AnyDeskSifre as 'AnyDesk Şifresi', SifreTable.Server, " +
             "SifreTable.ServerAdi as 'Server Adı', SifreTable.ServerSifre as 'Server Şifresi', SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO, " +
             "SifreTable.NetsisSifre as 'Netsis Şifresi' from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID ", baglanti);
             DataSet ds = new DataSet();
@@ -212,8 +210,7 @@ namespace DonanımTeknoloji
         }
         private void btn_Ara_Click(object sender, EventArgs e)
         {
-            
-            SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
             DataSet ds = new DataSet();
             baglanti.Open();
             da.Fill(ds, "SifreTable");
