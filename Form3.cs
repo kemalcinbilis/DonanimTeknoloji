@@ -15,6 +15,8 @@ namespace DonanımTeknoloji
         SqlCommand komut = new SqlCommand();
         SqlConnection baglanti = new SqlConnection("Data Source=.;Initial Catalog=DonanımTeknoloji;Integrated Security=SSPI");
         SqlDataReader dr;
+        SqlDataAdapter da;
+        DataSet ds;
 
         public Form3()
         {
@@ -27,6 +29,7 @@ namespace DonanımTeknoloji
             ModulleriGetir();
             FirmalariGetir();
             KullaniciGetir();
+            tabloDoldur();
         }
         private void KullaniciGetir()
         {
@@ -73,6 +76,25 @@ namespace DonanımTeknoloji
                 cb_FirmaSifre.Items.Add(dr["FirmaAdi"]);
             }
 
+            baglanti.Close();
+        }
+        private void tabloDoldur()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("Select ID, FirmaAdi as Firma, ModulAdi as Modül, GorusulenKisi as Yetkili, Tarih, Aciklama as Açıklama, İslemDurumu as Durum from İslemEkrani", baglanti);
+            DataSet ds = new DataSet();
+            baglanti.Open();
+            da.Fill(ds, "İslemEkrani");
+            dataGridView1.DataSource = ds.Tables[0];
+            baglanti.Close();
+        }
+
+        private void btn_Arama_Click(object sender, EventArgs e)
+        {
+            da = new SqlDataAdapter("Select ID, KullaniciAdi as 'Kullanıcı Adı', FirmaAdi as Firma, ModulAdi as Modül, GorusulenKisi as Yetkili, Tarih as Tarih, Aciklama as Açıklama, İslemDurumu as Durum from İslemEkrani WHERE KullaniciAdi = '" + cb_Danisman.Text + "' and FirmaAdi = '" + cb_FirmaSifre.Text + "' and Tarih between '" + dtp_BasTarih.Value.ToString("yyyy-MM-dd") + "' and '" + dtp_BitTarih.Value.ToString("yyyy-MM-dd") + "'", baglanti);
+            ds = new DataSet();
+            baglanti.Open();
+            da.Fill(ds, "İslemEkrani");
+            dataGridView1.DataSource = ds.Tables["İslemEkrani"];
             baglanti.Close();
         }
     }

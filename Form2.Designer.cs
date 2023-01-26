@@ -98,7 +98,6 @@ namespace DonanımTeknoloji
             this.lbl_FirmaAdi.Size = new System.Drawing.Size(87, 20);
             this.lbl_FirmaAdi.TabIndex = 0;
             this.lbl_FirmaAdi.Text = "Firma Adı";
-            this.lbl_FirmaAdi.Click += new System.EventHandler(this.lbl_FirmaAdi_Click);
             // 
             // cb_FirmaAdi
             // 
@@ -107,7 +106,6 @@ namespace DonanımTeknoloji
             this.cb_FirmaAdi.Name = "cb_FirmaAdi";
             this.cb_FirmaAdi.Size = new System.Drawing.Size(392, 28);
             this.cb_FirmaAdi.TabIndex = 1;
-            this.cb_FirmaAdi.SelectedIndexChanged += new System.EventHandler(this.cb_FirmaAdi_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -118,7 +116,6 @@ namespace DonanımTeknoloji
             this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Yetkili Kisi";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tb_GörüsülenKisi
             // 
@@ -126,7 +123,6 @@ namespace DonanımTeknoloji
             this.tb_GörüsülenKisi.Name = "tb_GörüsülenKisi";
             this.tb_GörüsülenKisi.Size = new System.Drawing.Size(392, 27);
             this.tb_GörüsülenKisi.TabIndex = 2;
-            this.tb_GörüsülenKisi.TextChanged += new System.EventHandler(this.tb_GörüsülenKisi_TextChanged);
             // 
             // dtp_Tarih
             // 
@@ -135,7 +131,6 @@ namespace DonanımTeknoloji
             this.dtp_Tarih.Size = new System.Drawing.Size(392, 27);
             this.dtp_Tarih.TabIndex = 4;
             this.dtp_Tarih.Value = new System.DateTime(2023, 1, 19, 16, 3, 49, 0);
-            this.dtp_Tarih.ValueChanged += new System.EventHandler(this.dtp_Tarih_ValueChanged);
             // 
             // lbl_Tarih
             // 
@@ -146,7 +141,6 @@ namespace DonanımTeknoloji
             this.lbl_Tarih.Size = new System.Drawing.Size(49, 20);
             this.lbl_Tarih.TabIndex = 5;
             this.lbl_Tarih.Text = "Tarih";
-            this.lbl_Tarih.Click += new System.EventHandler(this.lbl_Tarih_Click);
             // 
             // lbl_Modül
             // 
@@ -157,7 +151,6 @@ namespace DonanımTeknoloji
             this.lbl_Modül.Size = new System.Drawing.Size(81, 20);
             this.lbl_Modül.TabIndex = 6;
             this.lbl_Modül.Text = "Modüller";
-            this.lbl_Modül.Click += new System.EventHandler(this.lbl_Modül_Click);
             // 
             // cb_Modül
             // 
@@ -166,7 +159,6 @@ namespace DonanımTeknoloji
             this.cb_Modül.Name = "cb_Modül";
             this.cb_Modül.Size = new System.Drawing.Size(392, 28);
             this.cb_Modül.TabIndex = 3;
-            this.cb_Modül.SelectedIndexChanged += new System.EventHandler(this.cb_Modül_SelectedIndexChanged);
             // 
             // btn_Kaydet
             // 
@@ -205,7 +197,6 @@ namespace DonanımTeknoloji
             this.lbl_Aciklama.Size = new System.Drawing.Size(83, 20);
             this.lbl_Aciklama.TabIndex = 14;
             this.lbl_Aciklama.Text = "Açıklama";
-            this.lbl_Aciklama.Click += new System.EventHandler(this.lbl_Aciklama_Click);
             // 
             // tb_Aciklama
             // 
@@ -214,7 +205,6 @@ namespace DonanımTeknoloji
             this.tb_Aciklama.Size = new System.Drawing.Size(392, 120);
             this.tb_Aciklama.TabIndex = 5;
             this.tb_Aciklama.Text = "";
-            this.tb_Aciklama.TextChanged += new System.EventHandler(this.tb_Aciklama_TextChanged);
             // 
             // pictureBox1
             // 
@@ -225,7 +215,6 @@ namespace DonanımTeknoloji
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -236,7 +225,6 @@ namespace DonanımTeknoloji
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 17;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label2
             // 
@@ -247,7 +235,6 @@ namespace DonanımTeknoloji
             this.label2.Size = new System.Drawing.Size(16, 20);
             this.label2.TabIndex = 19;
             this.label2.Text = "*";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -258,7 +245,6 @@ namespace DonanımTeknoloji
             this.label3.Size = new System.Drawing.Size(16, 20);
             this.label3.TabIndex = 20;
             this.label3.Text = "*";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // tabControl1
             // 
@@ -269,7 +255,6 @@ namespace DonanımTeknoloji
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1900, 805);
             this.tabControl1.TabIndex = 21;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -299,7 +284,6 @@ namespace DonanımTeknoloji
             this.tabPage1.Size = new System.Drawing.Size(1892, 772);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Görüşme Kaydı";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // lbl_ID
             // 
@@ -310,7 +294,6 @@ namespace DonanımTeknoloji
             this.lbl_ID.TabIndex = 25;
             this.lbl_ID.Text = "0";
             this.lbl_ID.Visible = false;
-            this.lbl_ID.Click += new System.EventHandler(this.lbl_ID_Click);
             // 
             // lbl_İslemDurumu
             // 
@@ -322,7 +305,6 @@ namespace DonanımTeknoloji
             this.lbl_İslemDurumu.Size = new System.Drawing.Size(121, 20);
             this.lbl_İslemDurumu.TabIndex = 24;
             this.lbl_İslemDurumu.Text = "İslem Durumu";
-            this.lbl_İslemDurumu.Click += new System.EventHandler(this.lbl_İslemDurumu_Click);
             // 
             // cb_İslemDurumu
             // 
@@ -335,7 +317,6 @@ namespace DonanımTeknoloji
             this.cb_İslemDurumu.Name = "cb_İslemDurumu";
             this.cb_İslemDurumu.Size = new System.Drawing.Size(392, 28);
             this.cb_İslemDurumu.TabIndex = 6;
-            this.cb_İslemDurumu.SelectedIndexChanged += new System.EventHandler(this.cb_İslemDurumu_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -370,7 +351,6 @@ namespace DonanımTeknoloji
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(1218, 756);
             this.dataGridView1.TabIndex = 22;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView1_CellFormatting);
             // 
@@ -399,7 +379,6 @@ namespace DonanımTeknoloji
             this.tabPage2.Size = new System.Drawing.Size(1892, 772);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Şifre Kayıtları";
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // groupBox1
             // 
@@ -413,7 +392,6 @@ namespace DonanımTeknoloji
             this.groupBox1.Size = new System.Drawing.Size(1880, 347);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button1
             // 
@@ -450,7 +428,6 @@ namespace DonanımTeknoloji
             this.cb_FirmaSifre.Name = "cb_FirmaSifre";
             this.cb_FirmaSifre.Size = new System.Drawing.Size(400, 28);
             this.cb_FirmaSifre.TabIndex = 0;
-            this.cb_FirmaSifre.SelectedIndexChanged += new System.EventHandler(this.cb_FirmaSifre_SelectedIndexChanged);
             // 
             // lbl_ŞifreAciklama
             // 
@@ -461,7 +438,6 @@ namespace DonanımTeknoloji
             this.lbl_ŞifreAciklama.Size = new System.Drawing.Size(390, 23);
             this.lbl_ŞifreAciklama.TabIndex = 1;
             this.lbl_ŞifreAciklama.Text = "Şifre kayıtlarını görmek istediğiniz firmayı seçiniz: ";
-            this.lbl_ŞifreAciklama.Click += new System.EventHandler(this.lbl_ŞifreAciklama_Click);
             // 
             // dataGridView2
             // 
@@ -504,7 +480,6 @@ namespace DonanımTeknoloji
             this.dataGridView2.RowTemplate.Height = 29;
             this.dataGridView2.Size = new System.Drawing.Size(1880, 407);
             this.dataGridView2.TabIndex = 3;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // lbl_Durum
             // 
@@ -515,7 +490,6 @@ namespace DonanımTeknoloji
             this.lbl_Durum.Size = new System.Drawing.Size(84, 23);
             this.lbl_Durum.TabIndex = 22;
             this.lbl_Durum.Text = "Kullanıcı";
-            this.lbl_Durum.Click += new System.EventHandler(this.lbl_Durum_Click);
             // 
             // lbl_Kullanici
             // 
@@ -525,7 +499,6 @@ namespace DonanımTeknoloji
             this.lbl_Kullanici.Size = new System.Drawing.Size(72, 20);
             this.lbl_Kullanici.TabIndex = 23;
             this.lbl_Kullanici.Text = "Kullanıcı: ";
-            this.lbl_Kullanici.Click += new System.EventHandler(this.lbl_Kullanici_Click);
             // 
             // btn_Filtre
             // 
@@ -545,7 +518,6 @@ namespace DonanımTeknoloji
             this.lbl_BaslangicTarihi.Size = new System.Drawing.Size(72, 20);
             this.lbl_BaslangicTarihi.TabIndex = 27;
             this.lbl_BaslangicTarihi.Text = "Baslangıç";
-            this.lbl_BaslangicTarihi.Click += new System.EventHandler(this.lbl_BaslangicTarihi_Click);
             // 
             // lbl_BitisTarihi
             // 
@@ -555,7 +527,6 @@ namespace DonanımTeknoloji
             this.lbl_BitisTarihi.Size = new System.Drawing.Size(37, 20);
             this.lbl_BitisTarihi.TabIndex = 28;
             this.lbl_BitisTarihi.Text = "Bitiş";
-            this.lbl_BitisTarihi.Click += new System.EventHandler(this.lbl_BitisTarihi_Click);
             // 
             // dtp_BaslangicTarihi
             // 
@@ -563,7 +534,6 @@ namespace DonanımTeknoloji
             this.dtp_BaslangicTarihi.Name = "dtp_BaslangicTarihi";
             this.dtp_BaslangicTarihi.Size = new System.Drawing.Size(250, 27);
             this.dtp_BaslangicTarihi.TabIndex = 29;
-            this.dtp_BaslangicTarihi.ValueChanged += new System.EventHandler(this.dtp_BaslangicTarihi_ValueChanged);
             // 
             // dtp_BitisTarihi
             // 
@@ -571,7 +541,6 @@ namespace DonanımTeknoloji
             this.dtp_BitisTarihi.Name = "dtp_BitisTarihi";
             this.dtp_BitisTarihi.Size = new System.Drawing.Size(250, 27);
             this.dtp_BitisTarihi.TabIndex = 30;
-            this.dtp_BitisTarihi.ValueChanged += new System.EventHandler(this.dtp_BitisTarihi_ValueChanged);
             // 
             // cb_Firma
             // 
@@ -582,7 +551,6 @@ namespace DonanımTeknoloji
             this.cb_Firma.Name = "cb_Firma";
             this.cb_Firma.Size = new System.Drawing.Size(250, 28);
             this.cb_Firma.TabIndex = 31;
-            this.cb_Firma.SelectedIndexChanged += new System.EventHandler(this.cb_Firma_SelectedIndexChanged);
             // 
             // lbl_Firma
             // 
@@ -592,7 +560,6 @@ namespace DonanımTeknoloji
             this.lbl_Firma.Size = new System.Drawing.Size(46, 20);
             this.lbl_Firma.TabIndex = 32;
             this.lbl_Firma.Text = "Firma";
-            this.lbl_Firma.Click += new System.EventHandler(this.lbl_Firma_Click);
             // 
             // pictureBox4
             // 
@@ -603,7 +570,6 @@ namespace DonanımTeknoloji
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 33;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // Form2
             // 
