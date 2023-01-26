@@ -210,7 +210,10 @@ namespace DonanımTeknoloji
                     row.DefaultCellStyle.BackColor = Color.YellowGreen;
                 }           
         }
+        private void btn_Ara_Click(object sender, EventArgs e)
+        {
 
+        }
         private void btn_Uygula_Click(object sender, EventArgs e)
         {
             if(rb_Ekle.Checked = true)
@@ -218,5 +221,7 @@ namespace DonanımTeknoloji
 
             }
         }
+
+
     }
 }

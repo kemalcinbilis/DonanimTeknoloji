@@ -163,7 +163,7 @@ namespace DonanımTeknoloji
             this.groupBox2.Controls.Add(this.rb_Güncelle);
             this.groupBox2.Controls.Add(this.rb_Sil);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(943, 82);
+            this.groupBox2.Location = new System.Drawing.Point(947, 93);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(152, 129);
             this.groupBox2.TabIndex = 21;
@@ -209,7 +209,7 @@ namespace DonanımTeknoloji
             // btn_Uygula
             // 
             this.btn_Uygula.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_Uygula.Location = new System.Drawing.Point(1303, 255);
+            this.btn_Uygula.Location = new System.Drawing.Point(1307, 266);
             this.btn_Uygula.Name = "btn_Uygula";
             this.btn_Uygula.Size = new System.Drawing.Size(329, 55);
             this.btn_Uygula.TabIndex = 11;
@@ -220,7 +220,7 @@ namespace DonanımTeknoloji
             // tbNetsisSifresi
             // 
             this.tbNetsisSifresi.Enabled = false;
-            this.tbNetsisSifresi.Location = new System.Drawing.Point(1542, 172);
+            this.tbNetsisSifresi.Location = new System.Drawing.Point(1546, 183);
             this.tbNetsisSifresi.Name = "tbNetsisSifresi";
             this.tbNetsisSifresi.Size = new System.Drawing.Size(174, 27);
             this.tbNetsisSifresi.TabIndex = 10;
@@ -228,7 +228,7 @@ namespace DonanımTeknoloji
             // tbSSO
             // 
             this.tbSSO.Enabled = false;
-            this.tbSSO.Location = new System.Drawing.Point(1542, 135);
+            this.tbSSO.Location = new System.Drawing.Point(1546, 146);
             this.tbSSO.Name = "tbSSO";
             this.tbSSO.Size = new System.Drawing.Size(174, 27);
             this.tbSSO.TabIndex = 9;
@@ -236,7 +236,7 @@ namespace DonanımTeknoloji
             // tbSQLSifresi
             // 
             this.tbSQLSifresi.Enabled = false;
-            this.tbSQLSifresi.Location = new System.Drawing.Point(1542, 102);
+            this.tbSQLSifresi.Location = new System.Drawing.Point(1546, 113);
             this.tbSQLSifresi.Name = "tbSQLSifresi";
             this.tbSQLSifresi.Size = new System.Drawing.Size(174, 27);
             this.tbSQLSifresi.TabIndex = 8;
@@ -244,7 +244,7 @@ namespace DonanımTeknoloji
             // tbSQLAdi
             // 
             this.tbSQLAdi.Enabled = false;
-            this.tbSQLAdi.Location = new System.Drawing.Point(1542, 69);
+            this.tbSQLAdi.Location = new System.Drawing.Point(1546, 80);
             this.tbSQLAdi.Name = "tbSQLAdi";
             this.tbSQLAdi.Size = new System.Drawing.Size(174, 27);
             this.tbSQLAdi.TabIndex = 7;
@@ -252,7 +252,7 @@ namespace DonanımTeknoloji
             // tbServerSifresi
             // 
             this.tbServerSifresi.Enabled = false;
-            this.tbServerSifresi.Location = new System.Drawing.Point(1241, 201);
+            this.tbServerSifresi.Location = new System.Drawing.Point(1245, 212);
             this.tbServerSifresi.Name = "tbServerSifresi";
             this.tbServerSifresi.Size = new System.Drawing.Size(174, 27);
             this.tbServerSifresi.TabIndex = 6;
@@ -260,7 +260,7 @@ namespace DonanımTeknoloji
             // tbServerAdi
             // 
             this.tbServerAdi.Enabled = false;
-            this.tbServerAdi.Location = new System.Drawing.Point(1241, 168);
+            this.tbServerAdi.Location = new System.Drawing.Point(1245, 179);
             this.tbServerAdi.Name = "tbServerAdi";
             this.tbServerAdi.Size = new System.Drawing.Size(174, 27);
             this.tbServerAdi.TabIndex = 5;
@@ -268,7 +268,7 @@ namespace DonanımTeknoloji
             // tbServer
             // 
             this.tbServer.Enabled = false;
-            this.tbServer.Location = new System.Drawing.Point(1241, 135);
+            this.tbServer.Location = new System.Drawing.Point(1245, 146);
             this.tbServer.Name = "tbServer";
             this.tbServer.Size = new System.Drawing.Size(174, 27);
             this.tbServer.TabIndex = 4;
@@ -276,7 +276,7 @@ namespace DonanımTeknoloji
             // tbAnyDeskSifre
             // 
             this.tbAnyDeskSifre.Enabled = false;
-            this.tbAnyDeskSifre.Location = new System.Drawing.Point(1241, 102);
+            this.tbAnyDeskSifre.Location = new System.Drawing.Point(1245, 113);
             this.tbAnyDeskSifre.Name = "tbAnyDeskSifre";
             this.tbAnyDeskSifre.Size = new System.Drawing.Size(174, 27);
             this.tbAnyDeskSifre.TabIndex = 3;
@@ -284,7 +284,7 @@ namespace DonanımTeknoloji
             // tbAnyDesk
             // 
             this.tbAnyDesk.Enabled = false;
-            this.tbAnyDesk.Location = new System.Drawing.Point(1241, 69);
+            this.tbAnyDesk.Location = new System.Drawing.Point(1245, 80);
             this.tbAnyDesk.Name = "tbAnyDesk";
             this.tbAnyDesk.Size = new System.Drawing.Size(174, 27);
             this.tbAnyDesk.TabIndex = 2;
@@ -292,7 +292,7 @@ namespace DonanımTeknoloji
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1443, 175);
+            this.label8.Location = new System.Drawing.Point(1447, 186);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 20);
             this.label8.TabIndex = 18;
@@ -301,7 +301,7 @@ namespace DonanımTeknoloji
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1500, 138);
+            this.label7.Location = new System.Drawing.Point(1504, 149);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 20);
             this.label7.TabIndex = 17;
@@ -310,7 +310,7 @@ namespace DonanımTeknoloji
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1457, 105);
+            this.label6.Location = new System.Drawing.Point(1461, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 20);
             this.label6.TabIndex = 16;
@@ -319,7 +319,7 @@ namespace DonanımTeknoloji
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1474, 72);
+            this.label5.Location = new System.Drawing.Point(1478, 83);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 20);
             this.label5.TabIndex = 15;
@@ -328,7 +328,7 @@ namespace DonanımTeknoloji
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1158, 171);
+            this.label4.Location = new System.Drawing.Point(1162, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 20);
             this.label4.TabIndex = 14;
@@ -337,7 +337,7 @@ namespace DonanımTeknoloji
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1141, 204);
+            this.label1.Location = new System.Drawing.Point(1145, 215);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 13;
@@ -346,7 +346,7 @@ namespace DonanımTeknoloji
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1185, 138);
+            this.label3.Location = new System.Drawing.Point(1189, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 20);
             this.label3.TabIndex = 12;
@@ -355,7 +355,7 @@ namespace DonanımTeknoloji
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1125, 105);
+            this.label2.Location = new System.Drawing.Point(1129, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 20);
             this.label2.TabIndex = 11;
@@ -364,7 +364,7 @@ namespace DonanımTeknoloji
             // lbl_AnyDesk
             // 
             this.lbl_AnyDesk.AutoSize = true;
-            this.lbl_AnyDesk.Location = new System.Drawing.Point(1154, 72);
+            this.lbl_AnyDesk.Location = new System.Drawing.Point(1158, 83);
             this.lbl_AnyDesk.Name = "lbl_AnyDesk";
             this.lbl_AnyDesk.Size = new System.Drawing.Size(66, 20);
             this.lbl_AnyDesk.TabIndex = 10;
@@ -395,6 +395,7 @@ namespace DonanımTeknoloji
             this.btn_Ara.TabIndex = 1;
             this.btn_Ara.Text = "Tamam";
             this.btn_Ara.UseVisualStyleBackColor = false;
+            this.btn_Ara.Click += new System.EventHandler(this.btn_Ara_Click);
             // 
             // cb_FirmaSifre
             // 
