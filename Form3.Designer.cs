@@ -37,9 +37,33 @@ namespace DonanımTeknoloji
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.lbl_ID = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rb_Ekle = new System.Windows.Forms.RadioButton();
+            this.rb_Güncelle = new System.Windows.Forms.RadioButton();
+            this.rb_Sil = new System.Windows.Forms.RadioButton();
+            this.btn_Uygula = new System.Windows.Forms.Button();
+            this.tbNetsisSifresi = new System.Windows.Forms.TextBox();
+            this.tbSSO = new System.Windows.Forms.TextBox();
+            this.tbSQLSifresi = new System.Windows.Forms.TextBox();
+            this.tbSQLAdi = new System.Windows.Forms.TextBox();
+            this.tbServerSifresi = new System.Windows.Forms.TextBox();
+            this.tbServerAdi = new System.Windows.Forms.TextBox();
+            this.tbServer = new System.Windows.Forms.TextBox();
+            this.tbAnyDeskSifre = new System.Windows.Forms.TextBox();
+            this.tbAnyDesk = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_AnyDesk = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Ara = new System.Windows.Forms.Button();
             this.cb_FirmaSifre = new System.Windows.Forms.ComboBox();
@@ -68,6 +92,7 @@ namespace DonanımTeknoloji
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -95,13 +120,33 @@ namespace DonanımTeknoloji
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1892, 772);
+            this.tabPage2.Size = new System.Drawing.Size(1892, 787);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Şifre Kayıtları";
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.btn_Uygula);
+            this.groupBox1.Controls.Add(this.tbNetsisSifresi);
+            this.groupBox1.Controls.Add(this.tbSSO);
+            this.groupBox1.Controls.Add(this.tbSQLSifresi);
+            this.groupBox1.Controls.Add(this.tbSQLAdi);
+            this.groupBox1.Controls.Add(this.tbServerSifresi);
+            this.groupBox1.Controls.Add(this.tbServerAdi);
+            this.groupBox1.Controls.Add(this.tbServer);
+            this.groupBox1.Controls.Add(this.tbAnyDeskSifre);
+            this.groupBox1.Controls.Add(this.tbAnyDesk);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lbl_AnyDesk);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btn_Ara);
             this.groupBox1.Controls.Add(this.cb_FirmaSifre);
@@ -112,13 +157,226 @@ namespace DonanımTeknoloji
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rb_Ekle);
+            this.groupBox2.Controls.Add(this.rb_Güncelle);
+            this.groupBox2.Controls.Add(this.rb_Sil);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(943, 82);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(152, 129);
+            this.groupBox2.TabIndex = 21;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "İşlemi seçiniz.";
+            // 
+            // rb_Ekle
+            // 
+            this.rb_Ekle.AutoSize = true;
+            this.rb_Ekle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rb_Ekle.Location = new System.Drawing.Point(6, 29);
+            this.rb_Ekle.Name = "rb_Ekle";
+            this.rb_Ekle.Size = new System.Drawing.Size(58, 24);
+            this.rb_Ekle.TabIndex = 5;
+            this.rb_Ekle.TabStop = true;
+            this.rb_Ekle.Text = "Ekle";
+            this.rb_Ekle.UseVisualStyleBackColor = true;
+            // 
+            // rb_Güncelle
+            // 
+            this.rb_Güncelle.AutoSize = true;
+            this.rb_Güncelle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rb_Güncelle.Location = new System.Drawing.Point(6, 89);
+            this.rb_Güncelle.Name = "rb_Güncelle";
+            this.rb_Güncelle.Size = new System.Drawing.Size(89, 24);
+            this.rb_Güncelle.TabIndex = 20;
+            this.rb_Güncelle.TabStop = true;
+            this.rb_Güncelle.Text = "Güncelle";
+            this.rb_Güncelle.UseVisualStyleBackColor = true;
+            // 
+            // rb_Sil
+            // 
+            this.rb_Sil.AutoSize = true;
+            this.rb_Sil.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rb_Sil.Location = new System.Drawing.Point(6, 59);
+            this.rb_Sil.Name = "rb_Sil";
+            this.rb_Sil.Size = new System.Drawing.Size(46, 24);
+            this.rb_Sil.TabIndex = 19;
+            this.rb_Sil.TabStop = true;
+            this.rb_Sil.Text = "Sil";
+            this.rb_Sil.UseVisualStyleBackColor = true;
+            // 
+            // btn_Uygula
+            // 
+            this.btn_Uygula.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Uygula.Location = new System.Drawing.Point(1303, 255);
+            this.btn_Uygula.Name = "btn_Uygula";
+            this.btn_Uygula.Size = new System.Drawing.Size(329, 55);
+            this.btn_Uygula.TabIndex = 11;
+            this.btn_Uygula.Text = "UYGULA";
+            this.btn_Uygula.UseVisualStyleBackColor = true;
+            this.btn_Uygula.Click += new System.EventHandler(this.btn_Uygula_Click);
+            // 
+            // tbNetsisSifresi
+            // 
+            this.tbNetsisSifresi.Enabled = false;
+            this.tbNetsisSifresi.Location = new System.Drawing.Point(1542, 172);
+            this.tbNetsisSifresi.Name = "tbNetsisSifresi";
+            this.tbNetsisSifresi.Size = new System.Drawing.Size(174, 27);
+            this.tbNetsisSifresi.TabIndex = 10;
+            // 
+            // tbSSO
+            // 
+            this.tbSSO.Enabled = false;
+            this.tbSSO.Location = new System.Drawing.Point(1542, 135);
+            this.tbSSO.Name = "tbSSO";
+            this.tbSSO.Size = new System.Drawing.Size(174, 27);
+            this.tbSSO.TabIndex = 9;
+            // 
+            // tbSQLSifresi
+            // 
+            this.tbSQLSifresi.Enabled = false;
+            this.tbSQLSifresi.Location = new System.Drawing.Point(1542, 102);
+            this.tbSQLSifresi.Name = "tbSQLSifresi";
+            this.tbSQLSifresi.Size = new System.Drawing.Size(174, 27);
+            this.tbSQLSifresi.TabIndex = 8;
+            // 
+            // tbSQLAdi
+            // 
+            this.tbSQLAdi.Enabled = false;
+            this.tbSQLAdi.Location = new System.Drawing.Point(1542, 69);
+            this.tbSQLAdi.Name = "tbSQLAdi";
+            this.tbSQLAdi.Size = new System.Drawing.Size(174, 27);
+            this.tbSQLAdi.TabIndex = 7;
+            // 
+            // tbServerSifresi
+            // 
+            this.tbServerSifresi.Enabled = false;
+            this.tbServerSifresi.Location = new System.Drawing.Point(1241, 201);
+            this.tbServerSifresi.Name = "tbServerSifresi";
+            this.tbServerSifresi.Size = new System.Drawing.Size(174, 27);
+            this.tbServerSifresi.TabIndex = 6;
+            // 
+            // tbServerAdi
+            // 
+            this.tbServerAdi.Enabled = false;
+            this.tbServerAdi.Location = new System.Drawing.Point(1241, 168);
+            this.tbServerAdi.Name = "tbServerAdi";
+            this.tbServerAdi.Size = new System.Drawing.Size(174, 27);
+            this.tbServerAdi.TabIndex = 5;
+            // 
+            // tbServer
+            // 
+            this.tbServer.Enabled = false;
+            this.tbServer.Location = new System.Drawing.Point(1241, 135);
+            this.tbServer.Name = "tbServer";
+            this.tbServer.Size = new System.Drawing.Size(174, 27);
+            this.tbServer.TabIndex = 4;
+            // 
+            // tbAnyDeskSifre
+            // 
+            this.tbAnyDeskSifre.Enabled = false;
+            this.tbAnyDeskSifre.Location = new System.Drawing.Point(1241, 102);
+            this.tbAnyDeskSifre.Name = "tbAnyDeskSifre";
+            this.tbAnyDeskSifre.Size = new System.Drawing.Size(174, 27);
+            this.tbAnyDeskSifre.TabIndex = 3;
+            // 
+            // tbAnyDesk
+            // 
+            this.tbAnyDesk.Enabled = false;
+            this.tbAnyDesk.Location = new System.Drawing.Point(1241, 69);
+            this.tbAnyDesk.Name = "tbAnyDesk";
+            this.tbAnyDesk.Size = new System.Drawing.Size(174, 27);
+            this.tbAnyDesk.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1443, 175);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 20);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Netsis Şifresi";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1500, 138);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(36, 20);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "SSO";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1457, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 20);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "SQL Şifresi";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1474, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 20);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "SQL Adı";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1158, 171);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Server Adı";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1141, 204);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Server Şifresi";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1185, 138);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Server";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1125, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "AnyDesk Şifresi";
+            // 
+            // lbl_AnyDesk
+            // 
+            this.lbl_AnyDesk.AutoSize = true;
+            this.lbl_AnyDesk.Location = new System.Drawing.Point(1154, 72);
+            this.lbl_AnyDesk.Name = "lbl_AnyDesk";
+            this.lbl_AnyDesk.Size = new System.Drawing.Size(66, 20);
+            this.lbl_AnyDesk.TabIndex = 10;
+            this.lbl_AnyDesk.Text = "AnyDesk";
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(0, 312);
+            this.button1.Location = new System.Drawing.Point(0, 318);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 29);
             this.button1.TabIndex = 9;
@@ -131,17 +389,17 @@ namespace DonanımTeknoloji
             this.btn_Ara.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Ara.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Ara.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Ara.Location = new System.Drawing.Point(794, 184);
+            this.btn_Ara.Location = new System.Drawing.Point(445, 166);
             this.btn_Ara.Name = "btn_Ara";
-            this.btn_Ara.Size = new System.Drawing.Size(270, 81);
-            this.btn_Ara.TabIndex = 8;
-            this.btn_Ara.Text = "ARA";
+            this.btn_Ara.Size = new System.Drawing.Size(400, 58);
+            this.btn_Ara.TabIndex = 1;
+            this.btn_Ara.Text = "Tamam";
             this.btn_Ara.UseVisualStyleBackColor = false;
             // 
             // cb_FirmaSifre
             // 
             this.cb_FirmaSifre.FormattingEnabled = true;
-            this.cb_FirmaSifre.Location = new System.Drawing.Point(898, 105);
+            this.cb_FirmaSifre.Location = new System.Drawing.Point(445, 132);
             this.cb_FirmaSifre.Name = "cb_FirmaSifre";
             this.cb_FirmaSifre.Size = new System.Drawing.Size(400, 28);
             this.cb_FirmaSifre.TabIndex = 0;
@@ -150,11 +408,11 @@ namespace DonanımTeknoloji
             // 
             this.lbl_ŞifreAciklama.AutoSize = true;
             this.lbl_ŞifreAciklama.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ŞifreAciklama.Location = new System.Drawing.Point(502, 106);
+            this.lbl_ŞifreAciklama.Location = new System.Drawing.Point(15, 133);
             this.lbl_ŞifreAciklama.Name = "lbl_ŞifreAciklama";
-            this.lbl_ŞifreAciklama.Size = new System.Drawing.Size(390, 23);
+            this.lbl_ŞifreAciklama.Size = new System.Drawing.Size(424, 23);
             this.lbl_ŞifreAciklama.TabIndex = 1;
-            this.lbl_ŞifreAciklama.Text = "Şifre kayıtlarını görmek istediğiniz firmayı seçiniz: ";
+            this.lbl_ŞifreAciklama.Text = "Şifre kayıtlarını düzenlemek istediğiniz firmayı seçiniz: ";
             // 
             // dataGridView2
             // 
@@ -257,7 +515,7 @@ namespace DonanımTeknoloji
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1218, 756);
+            this.dataGridView1.Size = new System.Drawing.Size(1218, 771);
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
@@ -329,7 +587,7 @@ namespace DonanımTeknoloji
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1892, 772);
+            this.tabPage1.Size = new System.Drawing.Size(1892, 787);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Görüşme Kaydı";
             // 
@@ -345,11 +603,12 @@ namespace DonanımTeknoloji
             // 
             // btn_Temizle
             // 
-            this.btn_Temizle.Location = new System.Drawing.Point(454, 482);
+            this.btn_Temizle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Temizle.Location = new System.Drawing.Point(463, 402);
             this.btn_Temizle.Name = "btn_Temizle";
-            this.btn_Temizle.Size = new System.Drawing.Size(129, 29);
+            this.btn_Temizle.Size = new System.Drawing.Size(134, 29);
             this.btn_Temizle.TabIndex = 31;
-            this.btn_Temizle.Text = "Temizle";
+            this.btn_Temizle.Text = "Seçimleri Temizle";
             this.btn_Temizle.UseVisualStyleBackColor = true;
             this.btn_Temizle.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -365,11 +624,12 @@ namespace DonanımTeknoloji
             // 
             // btn_Sifirla
             // 
-            this.btn_Sifirla.Location = new System.Drawing.Point(454, 446);
+            this.btn_Sifirla.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Sifirla.Location = new System.Drawing.Point(463, 367);
             this.btn_Sifirla.Name = "btn_Sifirla";
-            this.btn_Sifirla.Size = new System.Drawing.Size(129, 29);
+            this.btn_Sifirla.Size = new System.Drawing.Size(134, 29);
             this.btn_Sifirla.TabIndex = 29;
-            this.btn_Sifirla.Text = "Tabloyu sıfırla";
+            this.btn_Sifirla.Text = "Tabloyu Sıfırla";
             this.btn_Sifirla.UseVisualStyleBackColor = true;
             this.btn_Sifirla.Click += new System.EventHandler(this.btn_Sifirla_Click);
             // 
@@ -406,9 +666,9 @@ namespace DonanımTeknoloji
             this.btn_Arama.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Arama.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_Arama.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Arama.Location = new System.Drawing.Point(186, 327);
+            this.btn_Arama.Location = new System.Drawing.Point(227, 280);
             this.btn_Arama.Name = "btn_Arama";
-            this.btn_Arama.Size = new System.Drawing.Size(397, 81);
+            this.btn_Arama.Size = new System.Drawing.Size(392, 81);
             this.btn_Arama.TabIndex = 7;
             this.btn_Arama.Text = "ARA";
             this.btn_Arama.UseVisualStyleBackColor = false;
@@ -441,26 +701,29 @@ namespace DonanımTeknoloji
             this.tabControl1.Location = new System.Drawing.Point(1, 175);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1900, 805);
+            this.tabControl1.Size = new System.Drawing.Size(1900, 820);
             this.tabControl1.TabIndex = 36;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.ClientSize = new System.Drawing.Size(1902, 1040);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.lbl_Kullanici);
             this.Controls.Add(this.lbl_DurumAdminPanel);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -505,5 +768,28 @@ namespace DonanımTeknoloji
         private System.Windows.Forms.CheckBox Kontrol;
         private System.Windows.Forms.Button btn_Temizle;
         private System.Windows.Forms.CheckBox KontrolUser;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_AnyDesk;
+        private System.Windows.Forms.Button btn_Uygula;
+        private System.Windows.Forms.TextBox tbNetsisSifresi;
+        private System.Windows.Forms.TextBox tbSSO;
+        private System.Windows.Forms.TextBox tbSQLSifresi;
+        private System.Windows.Forms.TextBox tbSQLAdi;
+        private System.Windows.Forms.TextBox tbServerSifresi;
+        private System.Windows.Forms.TextBox tbServerAdi;
+        private System.Windows.Forms.TextBox tbServer;
+        private System.Windows.Forms.TextBox tbAnyDeskSifre;
+        private System.Windows.Forms.TextBox tbAnyDesk;
+        private System.Windows.Forms.RadioButton rb_Güncelle;
+        private System.Windows.Forms.RadioButton rb_Sil;
+        private System.Windows.Forms.RadioButton rb_Ekle;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

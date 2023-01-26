@@ -42,7 +42,6 @@ namespace DonanımTeknoloji
                 th.Start();
             }
 
-
             lbl_Durum.Text = verial;
             ModulleriGetir();
             FirmalariGetir();

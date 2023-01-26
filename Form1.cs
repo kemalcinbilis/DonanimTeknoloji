@@ -20,6 +20,7 @@ namespace DonanımTeknoloji
         {
             baglanti.Open();
             gonder = tb_KullaniciAdi.Text;
+            tb_KullaniciAdi.CharacterCasing = CharacterCasing.Lower;
         }
 
         private void btn_Giris_Click(object sender, EventArgs e)

@@ -30,6 +30,7 @@ namespace DonanımTeknoloji
             FirmalariGetir();
             KullaniciGetir();
             tabloDoldur();
+            tabloDoldur2();
 
             cb_FirmaAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cb_FirmaAdi.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -96,6 +97,17 @@ namespace DonanımTeknoloji
             dataGridView1.DataSource = ds.Tables[0];
             baglanti.Close();
         }
+        private void tabloDoldur2()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk , SifreTable.AnyDeskSifre as 'AnyDesk Şifresi', SifreTable.Server, " +
+            "SifreTable.ServerAdi as 'Server Adı', SifreTable.ServerSifre as 'Server Şifresi', SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO, " +
+            "SifreTable.NetsisSifre as 'Netsis Şifresi' from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID ", baglanti);
+            DataSet ds = new DataSet();
+            baglanti.Open();
+            da.Fill(ds, "SifreTable");
+            dataGridView2.DataSource = ds.Tables[0];
+            baglanti.Close();
+        }
         private void temizle()
         {
             cb_Danisman.Text = "";
@@ -105,6 +117,19 @@ namespace DonanımTeknoloji
             Kontrol.Checked = false;
             KontrolUser.Checked = false;
         }
+        private void TextboxAktif()
+        {
+            tbAnyDesk.Enabled = true;
+            tbAnyDeskSifre.Enabled = true;
+            tbServer.Enabled = true;
+            tbServerAdi.Enabled = true;
+            tbServerSifresi.Enabled = true;
+            tbSQLAdi.Enabled = true;
+            tbSQLSifresi.Enabled = true;
+            tbSSO.Enabled = true;
+            tbNetsisSifresi.Enabled = true;
+        }
+
         private void btn_Arama_Click(object sender, EventArgs e)
         {   if (Kontrol.Checked == true && KontrolUser.Checked == true)
             {
@@ -183,8 +208,15 @@ namespace DonanımTeknoloji
                 else
                 {
                     row.DefaultCellStyle.BackColor = Color.YellowGreen;
-                }
-            
+                }           
+        }
+
+        private void btn_Uygula_Click(object sender, EventArgs e)
+        {
+            if(rb_Ekle.Checked = true)
+            {
+
+            }
         }
     }
 }
