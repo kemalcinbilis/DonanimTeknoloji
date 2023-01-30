@@ -43,11 +43,8 @@ namespace DonanımTeknoloji
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelID = new System.Windows.Forms.Label();
             this.lbl_IDText = new System.Windows.Forms.Label();
-            this.btnSec = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rb_Ekle = new System.Windows.Forms.RadioButton();
-            this.rb_Güncelle = new System.Windows.Forms.RadioButton();
-            this.rb_Sil = new System.Windows.Forms.RadioButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btn_Uygula = new System.Windows.Forms.Button();
             this.tbNetsisSifresi = new System.Windows.Forms.TextBox();
             this.tbSSO = new System.Windows.Forms.TextBox();
@@ -68,7 +65,6 @@ namespace DonanımTeknoloji
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_AnyDesk = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.btn_Ara = new System.Windows.Forms.Button();
             this.cb_FirmaSifre = new System.Windows.Forms.ComboBox();
             this.lbl_ŞifreAciklama = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -132,7 +128,6 @@ namespace DonanımTeknoloji
             this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox1.Controls.Add(this.labelID);
             this.groupBox1.Controls.Add(this.lbl_IDText);
-            this.groupBox1.Controls.Add(this.btnSec);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.btn_Uygula);
             this.groupBox1.Controls.Add(this.tbNetsisSifresi);
@@ -154,7 +149,6 @@ namespace DonanımTeknoloji
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lbl_AnyDesk);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btn_Ara);
             this.groupBox1.Controls.Add(this.cb_FirmaSifre);
             this.groupBox1.Controls.Add(this.lbl_ŞifreAciklama);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
@@ -168,9 +162,8 @@ namespace DonanımTeknoloji
             this.labelID.AutoSize = true;
             this.labelID.Location = new System.Drawing.Point(1245, 47);
             this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(17, 20);
+            this.labelID.Size = new System.Drawing.Size(0, 20);
             this.labelID.TabIndex = 24;
-            this.labelID.Text = "0";
             // 
             // lbl_IDText
             // 
@@ -181,68 +174,29 @@ namespace DonanımTeknoloji
             this.lbl_IDText.TabIndex = 23;
             this.lbl_IDText.Text = "ID";
             // 
-            // btnSec
-            // 
-            this.btnSec.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSec.Location = new System.Drawing.Point(947, 228);
-            this.btnSec.Name = "btnSec";
-            this.btnSec.Size = new System.Drawing.Size(152, 35);
-            this.btnSec.TabIndex = 22;
-            this.btnSec.Text = "Seç";
-            this.btnSec.UseVisualStyleBackColor = true;
-            this.btnSec.Click += new System.EventHandler(this.btnSec_Click);
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.rb_Ekle);
-            this.groupBox2.Controls.Add(this.rb_Güncelle);
-            this.groupBox2.Controls.Add(this.rb_Sil);
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(947, 93);
+            this.groupBox2.Location = new System.Drawing.Point(916, 98);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(152, 129);
+            this.groupBox2.Size = new System.Drawing.Size(164, 121);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İşlemi seçiniz.";
             // 
-            // rb_Ekle
+            // comboBox1
             // 
-            this.rb_Ekle.AutoSize = true;
-            this.rb_Ekle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rb_Ekle.Location = new System.Drawing.Point(6, 29);
-            this.rb_Ekle.Name = "rb_Ekle";
-            this.rb_Ekle.Size = new System.Drawing.Size(58, 24);
-            this.rb_Ekle.TabIndex = 5;
-            this.rb_Ekle.TabStop = true;
-            this.rb_Ekle.Text = "Ekle";
-            this.rb_Ekle.UseVisualStyleBackColor = true;
-            this.rb_Ekle.CheckedChanged += new System.EventHandler(this.rb_Ekle_CheckedChanged);
-            // 
-            // rb_Güncelle
-            // 
-            this.rb_Güncelle.AutoSize = true;
-            this.rb_Güncelle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rb_Güncelle.Location = new System.Drawing.Point(6, 89);
-            this.rb_Güncelle.Name = "rb_Güncelle";
-            this.rb_Güncelle.Size = new System.Drawing.Size(89, 24);
-            this.rb_Güncelle.TabIndex = 20;
-            this.rb_Güncelle.TabStop = true;
-            this.rb_Güncelle.Text = "Güncelle";
-            this.rb_Güncelle.UseVisualStyleBackColor = true;
-            this.rb_Güncelle.CheckedChanged += new System.EventHandler(this.rb_Güncelle_CheckedChanged);
-            // 
-            // rb_Sil
-            // 
-            this.rb_Sil.AutoSize = true;
-            this.rb_Sil.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rb_Sil.Location = new System.Drawing.Point(6, 59);
-            this.rb_Sil.Name = "rb_Sil";
-            this.rb_Sil.Size = new System.Drawing.Size(46, 24);
-            this.rb_Sil.TabIndex = 19;
-            this.rb_Sil.TabStop = true;
-            this.rb_Sil.Text = "Sil";
-            this.rb_Sil.UseVisualStyleBackColor = true;
-            this.rb_Sil.CheckedChanged += new System.EventHandler(this.rb_Sil_CheckedChanged);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Ekle",
+            "Sil",
+            "Güncelle"});
+            this.comboBox1.Location = new System.Drawing.Point(6, 47);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(152, 28);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btn_Uygula
             // 
@@ -422,33 +376,20 @@ namespace DonanımTeknoloji
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btn_Ara
-            // 
-            this.btn_Ara.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_Ara.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Ara.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Ara.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Ara.Location = new System.Drawing.Point(445, 166);
-            this.btn_Ara.Name = "btn_Ara";
-            this.btn_Ara.Size = new System.Drawing.Size(400, 58);
-            this.btn_Ara.TabIndex = 1;
-            this.btn_Ara.Text = "Tamam";
-            this.btn_Ara.UseVisualStyleBackColor = false;
-            this.btn_Ara.Click += new System.EventHandler(this.btn_Ara_Click);
-            // 
             // cb_FirmaSifre
             // 
             this.cb_FirmaSifre.FormattingEnabled = true;
-            this.cb_FirmaSifre.Location = new System.Drawing.Point(445, 132);
+            this.cb_FirmaSifre.Location = new System.Drawing.Point(464, 145);
             this.cb_FirmaSifre.Name = "cb_FirmaSifre";
             this.cb_FirmaSifre.Size = new System.Drawing.Size(400, 28);
             this.cb_FirmaSifre.TabIndex = 0;
+            this.cb_FirmaSifre.SelectedIndexChanged += new System.EventHandler(this.cb_FirmaSifre_SelectedIndexChanged);
             // 
             // lbl_ŞifreAciklama
             // 
             this.lbl_ŞifreAciklama.AutoSize = true;
             this.lbl_ŞifreAciklama.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ŞifreAciklama.Location = new System.Drawing.Point(15, 133);
+            this.lbl_ŞifreAciklama.Location = new System.Drawing.Point(34, 146);
             this.lbl_ŞifreAciklama.Name = "lbl_ŞifreAciklama";
             this.lbl_ŞifreAciklama.Size = new System.Drawing.Size(424, 23);
             this.lbl_ŞifreAciklama.TabIndex = 1;
@@ -763,7 +704,6 @@ namespace DonanımTeknoloji
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -783,7 +723,6 @@ namespace DonanımTeknoloji
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btn_Ara;
         private System.Windows.Forms.ComboBox cb_FirmaSifre;
         private System.Windows.Forms.Label lbl_ŞifreAciklama;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -827,12 +766,9 @@ namespace DonanımTeknoloji
         private System.Windows.Forms.TextBox tbServer;
         private System.Windows.Forms.TextBox tbAnyDeskSifre;
         private System.Windows.Forms.TextBox tbAnyDesk;
-        private System.Windows.Forms.RadioButton rb_Güncelle;
-        private System.Windows.Forms.RadioButton rb_Sil;
-        private System.Windows.Forms.RadioButton rb_Ekle;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnSec;
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label lbl_IDText;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
