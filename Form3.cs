@@ -141,7 +141,7 @@ namespace DonanımTeknoloji
         }
         private void Doldur()
         {
-            lbl_ID.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            labelID.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
             tbAnyDesk.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
             tbAnyDeskSifre.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
             tbServer.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
@@ -152,7 +152,19 @@ namespace DonanımTeknoloji
             tbSSO.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
             tbNetsisSifresi.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
         }
-
+        private void temizle2()
+        {
+            labelID.Text = "0";
+            tbAnyDesk.Clear();
+            tbAnyDeskSifre.Clear();
+            tbServer.Clear();
+            tbServerAdi.Clear();
+            tbServerSifresi.Clear();
+            tbSQLAdi.Clear();
+            tbSQLSifresi.Clear();
+            tbSSO.Clear();
+            tbNetsisSifresi.Clear();
+        }
         private void btn_Arama_Click(object sender, EventArgs e)
         {   if (Kontrol.Checked == true && KontrolUser.Checked == true)
             {
@@ -241,6 +253,7 @@ namespace DonanımTeknoloji
             da.Fill(ds, "SifreTable");
             dataGridView2.DataSource = ds.Tables[0];
             baglanti.Close();
+            temizle2();
         }
         private void btn_Uygula_Click(object sender, EventArgs e)
         {
@@ -288,15 +301,38 @@ namespace DonanımTeknoloji
         {
             if (rb_Ekle.Checked)
             {
-                
+                //if () 
+                //{
+                //    MessageBox.Show("Bu firma için ekleme işlemi yapamazsınız. Lütfen farklı bir işlem seçiniz.");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Şifreleri kaydetmek için gerekli bilgileri giriniz!");
+                //}
+
             }
             else if (rb_Sil.Checked)
             {
-                Doldur();
+                if (dataGridView2.CurrentRow.Cells[0].Value.ToString() == null)
+                {
+                    MessageBox.Show("Silinecek kayıt yok!");
+                }
+                else
+                {
+                    Doldur();
+                }
+                
             }
             else if (rb_Güncelle.Checked)
             {
-                Doldur();
+                if (dataGridView2.CurrentRow.Cells[0].Value.ToString() == null)
+                {
+                    MessageBox.Show("Güncellenecek kayıt yok!");
+                }
+                else
+                {
+                    Doldur();
+                }
             }
         }
     }

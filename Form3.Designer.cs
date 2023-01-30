@@ -41,6 +41,8 @@ namespace DonanımTeknoloji
             this.lbl_ID = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelID = new System.Windows.Forms.Label();
+            this.lbl_IDText = new System.Windows.Forms.Label();
             this.btnSec = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rb_Ekle = new System.Windows.Forms.RadioButton();
@@ -91,8 +93,6 @@ namespace DonanımTeknoloji
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.lbl_IDText = new System.Windows.Forms.Label();
-            this.labelID = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -162,6 +162,24 @@ namespace DonanımTeknoloji
             this.groupBox1.Size = new System.Drawing.Size(1880, 347);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Location = new System.Drawing.Point(1245, 47);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(17, 20);
+            this.labelID.TabIndex = 24;
+            this.labelID.Text = "0";
+            // 
+            // lbl_IDText
+            // 
+            this.lbl_IDText.AutoSize = true;
+            this.lbl_IDText.Location = new System.Drawing.Point(1189, 47);
+            this.lbl_IDText.Name = "lbl_IDText";
+            this.lbl_IDText.Size = new System.Drawing.Size(24, 20);
+            this.lbl_IDText.TabIndex = 23;
+            this.lbl_IDText.Text = "ID";
             // 
             // btnSec
             // 
@@ -725,24 +743,6 @@ namespace DonanımTeknoloji
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1900, 820);
             this.tabControl1.TabIndex = 36;
-            // 
-            // lbl_IDText
-            // 
-            this.lbl_IDText.AutoSize = true;
-            this.lbl_IDText.Location = new System.Drawing.Point(1189, 47);
-            this.lbl_IDText.Name = "lbl_IDText";
-            this.lbl_IDText.Size = new System.Drawing.Size(24, 20);
-            this.lbl_IDText.TabIndex = 23;
-            this.lbl_IDText.Text = "ID";
-            // 
-            // labelID
-            // 
-            this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(1245, 47);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(17, 20);
-            this.labelID.TabIndex = 24;
-            this.labelID.Text = "0";
             // 
             // Form3
             // 
