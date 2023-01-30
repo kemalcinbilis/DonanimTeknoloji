@@ -41,7 +41,7 @@ namespace DonanımTeknoloji
             this.lbl_ID = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbl_FirmaID = new System.Windows.Forms.Label();
+            this.btnSec = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rb_Ekle = new System.Windows.Forms.RadioButton();
             this.rb_Güncelle = new System.Windows.Forms.RadioButton();
@@ -91,6 +91,8 @@ namespace DonanımTeknoloji
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.lbl_IDText = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -128,7 +130,9 @@ namespace DonanımTeknoloji
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.groupBox1.Controls.Add(this.lbl_FirmaID);
+            this.groupBox1.Controls.Add(this.labelID);
+            this.groupBox1.Controls.Add(this.lbl_IDText);
+            this.groupBox1.Controls.Add(this.btnSec);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.btn_Uygula);
             this.groupBox1.Controls.Add(this.tbNetsisSifresi);
@@ -159,14 +163,16 @@ namespace DonanımTeknoloji
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
-            // lbl_FirmaID
+            // btnSec
             // 
-            this.lbl_FirmaID.AutoSize = true;
-            this.lbl_FirmaID.Location = new System.Drawing.Point(37, 39);
-            this.lbl_FirmaID.Name = "lbl_FirmaID";
-            this.lbl_FirmaID.Size = new System.Drawing.Size(15, 20);
-            this.lbl_FirmaID.TabIndex = 22;
-            this.lbl_FirmaID.Text = "*";
+            this.btnSec.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSec.Location = new System.Drawing.Point(947, 228);
+            this.btnSec.Name = "btnSec";
+            this.btnSec.Size = new System.Drawing.Size(152, 35);
+            this.btnSec.TabIndex = 22;
+            this.btnSec.Text = "Seç";
+            this.btnSec.UseVisualStyleBackColor = true;
+            this.btnSec.Click += new System.EventHandler(this.btnSec_Click);
             // 
             // groupBox2
             // 
@@ -192,6 +198,7 @@ namespace DonanımTeknoloji
             this.rb_Ekle.TabStop = true;
             this.rb_Ekle.Text = "Ekle";
             this.rb_Ekle.UseVisualStyleBackColor = true;
+            this.rb_Ekle.CheckedChanged += new System.EventHandler(this.rb_Ekle_CheckedChanged);
             // 
             // rb_Güncelle
             // 
@@ -204,6 +211,7 @@ namespace DonanımTeknoloji
             this.rb_Güncelle.TabStop = true;
             this.rb_Güncelle.Text = "Güncelle";
             this.rb_Güncelle.UseVisualStyleBackColor = true;
+            this.rb_Güncelle.CheckedChanged += new System.EventHandler(this.rb_Güncelle_CheckedChanged);
             // 
             // rb_Sil
             // 
@@ -216,6 +224,7 @@ namespace DonanımTeknoloji
             this.rb_Sil.TabStop = true;
             this.rb_Sil.Text = "Sil";
             this.rb_Sil.UseVisualStyleBackColor = true;
+            this.rb_Sil.CheckedChanged += new System.EventHandler(this.rb_Sil_CheckedChanged);
             // 
             // btn_Uygula
             // 
@@ -375,7 +384,7 @@ namespace DonanımTeknoloji
             // lbl_AnyDesk
             // 
             this.lbl_AnyDesk.AutoSize = true;
-            this.lbl_AnyDesk.Location = new System.Drawing.Point(1158, 83);
+            this.lbl_AnyDesk.Location = new System.Drawing.Point(1173, 83);
             this.lbl_AnyDesk.Name = "lbl_AnyDesk";
             this.lbl_AnyDesk.Size = new System.Drawing.Size(66, 20);
             this.lbl_AnyDesk.TabIndex = 10;
@@ -717,11 +726,29 @@ namespace DonanımTeknoloji
             this.tabControl1.Size = new System.Drawing.Size(1900, 820);
             this.tabControl1.TabIndex = 36;
             // 
+            // lbl_IDText
+            // 
+            this.lbl_IDText.AutoSize = true;
+            this.lbl_IDText.Location = new System.Drawing.Point(1189, 47);
+            this.lbl_IDText.Name = "lbl_IDText";
+            this.lbl_IDText.Size = new System.Drawing.Size(24, 20);
+            this.lbl_IDText.TabIndex = 23;
+            this.lbl_IDText.Text = "ID";
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Location = new System.Drawing.Point(1245, 47);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(17, 20);
+            this.labelID.TabIndex = 24;
+            this.labelID.Text = "0";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 1040);
+            this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.lbl_Kullanici);
             this.Controls.Add(this.lbl_DurumAdminPanel);
@@ -804,6 +831,8 @@ namespace DonanımTeknoloji
         private System.Windows.Forms.RadioButton rb_Sil;
         private System.Windows.Forms.RadioButton rb_Ekle;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lbl_FirmaID;
+        private System.Windows.Forms.Button btnSec;
+        private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.Label lbl_IDText;
     }
 }

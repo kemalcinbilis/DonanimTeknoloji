@@ -16,7 +16,6 @@ namespace DonanımTeknoloji
 {
     public partial class Form2 : Form
     {
-        Form1 form1 = new Form1();
         Form3 form3 = new Form3();
         SqlConnection baglanti = new SqlConnection("Data Source=.;Initial Catalog=DonanımTeknoloji;Integrated Security=SSPI");
         SqlDataReader dr;
@@ -33,6 +32,7 @@ namespace DonanımTeknoloji
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            dtp_Tarih.Value = DateTime.Now;
             if (verial == "admin")
             {
                 form3.Show();

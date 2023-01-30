@@ -127,6 +127,31 @@ namespace DonanımTeknoloji
             tbSSO.Enabled = true;
             tbNetsisSifresi.Enabled = true;
         }
+        private void TextboxKapat()
+        {
+            tbAnyDesk.Enabled = false;
+            tbAnyDeskSifre.Enabled = false;
+            tbServer.Enabled = false;
+            tbServerAdi.Enabled = false;
+            tbServerSifresi.Enabled = false;
+            tbSQLAdi.Enabled = false;
+            tbSQLSifresi.Enabled = false;
+            tbSSO.Enabled = false;
+            tbNetsisSifresi.Enabled = false;
+        }
+        private void Doldur()
+        {
+            lbl_ID.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            tbAnyDesk.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            tbAnyDeskSifre.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
+            tbServer.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
+            tbServerAdi.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+            tbServerSifresi.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
+            tbSQLAdi.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
+            tbSQLSifresi.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
+            tbSSO.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
+            tbNetsisSifresi.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
+        }
 
         private void btn_Arama_Click(object sender, EventArgs e)
         {   if (Kontrol.Checked == true && KontrolUser.Checked == true)
@@ -216,16 +241,63 @@ namespace DonanımTeknoloji
             da.Fill(ds, "SifreTable");
             dataGridView2.DataSource = ds.Tables[0];
             baglanti.Close();
-
         }
         private void btn_Uygula_Click(object sender, EventArgs e)
         {
+            if(rb_Ekle.Checked == true)
+            {
+                komut = new SqlCommand("insert into SifreTable(FirmaAdi, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) values (@FirmaAdi, @AnyDesk, @AnyDeskSifre, @Server, @ServerAdi, @ServerSifre, @SQLAdi, @SQLSifre, SSO, NetsisSifre)", baglanti);
+                komut.Connection = baglanti;
+                komut.CommandType = CommandType.Text;
 
+                komut.Parameters.AddWithValue("@FirmaAdi", cb_FirmaSifre.Text);
+                komut.Parameters.AddWithValue("@AnyDesk", tbAnyDesk.Text);
+                komut.Parameters.AddWithValue("@AnyDeskSifre", tbAnyDeskSifre.Text);
+                komut.Parameters.AddWithValue("@Server", tbServer.Text);
+                komut.Parameters.AddWithValue("@ServerAdi", tbServerAdi.Text);
+                komut.Parameters.AddWithValue("@ServerSifre", tbServerSifresi.Text);
+                komut.Parameters.AddWithValue("@SQLAdi", tbSQLAdi.Text);
+                komut.Parameters.AddWithValue("@SQLAdiSifre", tbSQLSifresi.Text);
+                komut.Parameters.AddWithValue("@SSO", tbSSO.Text);
+                komut.Parameters.AddWithValue("@NetsisSifre", tbNetsisSifresi.Text);
+                tabloDoldur2();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             tabloDoldur2();
+        }
+
+        private void rb_Ekle_CheckedChanged(object sender, EventArgs e)
+        {
+            TextboxAktif();
+        }
+
+        private void rb_Sil_CheckedChanged(object sender, EventArgs e)
+        {
+            TextboxKapat();
+        }
+
+        private void rb_Güncelle_CheckedChanged(object sender, EventArgs e)
+        {
+            TextboxAktif();
+        }
+
+        private void btnSec_Click(object sender, EventArgs e)
+        {
+            if (rb_Ekle.Checked)
+            {
+                
+            }
+            else if (rb_Sil.Checked)
+            {
+                Doldur();
+            }
+            else if (rb_Güncelle.Checked)
+            {
+                Doldur();
+            }
         }
     }
 }
