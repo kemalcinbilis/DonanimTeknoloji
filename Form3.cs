@@ -334,7 +334,7 @@ namespace DonanımTeknoloji
             }
             else if (comboBox1.Text == "Güncelle")
             {
-                
+
             }
         }
 
