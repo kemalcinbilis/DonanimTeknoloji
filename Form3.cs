@@ -319,14 +319,14 @@ namespace DonanımTeknoloji
         {
             if (comboBox1.Text == "Ekle")
             {
-                if (dataGridView1.Rows.Count == 0 || (dataGridView1.Rows.Count > 0 && (dataGridView1.Rows[0].Cells[0].Value == null || dataGridView1.Rows[0].Cells[0].Value.ToString().Trim() == "")))
-                {
-                    TextboxAktif();
-                }
-                else
-                {
-                    MessageBox.Show("Bu firma için ekleme işlemi yapılamaz.");
-                }
+                //if (dataGridView1.Rows.Count == 0 || (dataGridView1.Rows.Count > 0 && (dataGridView1.Rows[0].Cells[0].Value == null || dataGridView1.Rows[0].Cells[0].Value.ToString().Trim() == "")))
+                //{
+                //    TextboxAktif();
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Bu firma için ekleme işlemi yapılamaz.");
+                //}
             }
             else if (comboBox1.Text == "Sil")
             {
@@ -340,13 +340,26 @@ namespace DonanımTeknoloji
 
         private void cb_FirmaSifre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
-            DataSet ds = new DataSet();
-            baglanti.Open();
-            da.Fill(ds, "SifreTable");
-            dataGridView2.DataSource = ds.Tables[0];
-            baglanti.Close();
-            temizle2();
+                SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
+                DataSet ds = new DataSet();
+                baglanti.Open();
+                da.Fill(ds, "SifreTable");
+                dataGridView2.DataSource = ds.Tables[0];
+                baglanti.Close();
+
+                temizle2();
+
+                labelID.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+                tbAnyDesk.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+                tbAnyDeskSifre.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
+                tbServer.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
+                tbServerAdi.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+                tbServerSifresi.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
+                tbSQLAdi.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
+                tbSQLSifresi.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
+                tbSSO.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
+                tbNetsisSifresi.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
+            
         }
     }
 }
