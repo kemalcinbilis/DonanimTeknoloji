@@ -283,7 +283,7 @@ namespace DonanımTeknoloji
         {
             if (radioButton1.Checked == true)
             {
-                komut = new SqlCommand("INSERT INTO SifreTable(FirmaID, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) VALUES ('@FirmaID','@AnyDesk','@AnyDeskSifre','@Server','@ServerAdi','@ServerSifre','@SQLAdi','@SQLSifre','@SSO','@NetsisSifre')", baglanti);
+                komut = new SqlCommand("INSERT INTO SifreTable(FirmaID, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) VALUES (@FirmaID, @AnyDesk, @AnyDeskSifre, @Server, @ServerAdi, @ServerSifre, @SQLAdi, @SQLSifre, @SSO, @NetsisSifre)", baglanti);
                 komut.Connection = baglanti;
                 komut.CommandType = CommandType.Text;
 
@@ -306,11 +306,40 @@ namespace DonanımTeknoloji
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(labelID.Text);
                     MessageBox.Show("Bağlantı Hatası: " + ex.Message);
                 }
 
             }
+            //if (radioButton1.Checked == true)
+            //{
+            //    komut = new SqlCommand("INSERT INTO SifreTable(FirmaID, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) VALUES ('@FirmaID','@AnyDesk','@AnyDeskSifre','@Server','@ServerAdi','@ServerSifre','@SQLAdi','@SQLSifre','@SSO','@NetsisSifre')", baglanti);
+            //    komut.Connection = baglanti;
+            //    komut.CommandType = CommandType.Text;
+
+            //    komut.Parameters.AddWithValue("@FirmaID", Convert.ToInt32(labelID.Text));
+            //    komut.Parameters.AddWithValue("@AnyDesk", tbAnyDesk.Text);
+            //    komut.Parameters.AddWithValue("@AnyDeskSifre", tbAnyDeskSifre.Text);
+            //    komut.Parameters.AddWithValue("@Server", tbServer.Text);
+            //    komut.Parameters.AddWithValue("@ServerAdi", tbServerAdi.Text);
+            //    komut.Parameters.AddWithValue("@ServerSifre", tbServerSifresi.Text);
+            //    komut.Parameters.AddWithValue("@SQLAdi", tbSQLAdi.Text);
+            //    komut.Parameters.AddWithValue("@SQLSifre", tbSQLSifresi.Text);
+            //    komut.Parameters.AddWithValue("@SSO", tbSSO.Text);
+            //    komut.Parameters.AddWithValue("@NetsisSifre", tbNetsisSifresi.Text);
+            //    try
+            //    {
+            //        baglanti.Open();
+            //        komut.ExecuteNonQuery();
+            //        baglanti.Close();
+            //        MessageBox.Show("Kayıt başarılı!");
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(labelID.Text);
+            //        MessageBox.Show("Bağlantı Hatası: " + ex.Message);
+            //    }
+
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
