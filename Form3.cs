@@ -37,7 +37,11 @@ namespace DonanımTeknoloji
 
             cb_Danisman.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cb_Danisman.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cb_Danisman.AutoCompleteSource = AutoCompleteSource.ListItems; 
+            cb_Danisman.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            cb_FirmaSifre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            cb_FirmaSifre.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_FirmaSifre.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
         private void KullaniciGetir()
         {
@@ -141,23 +145,16 @@ namespace DonanımTeknoloji
         }
         private void Doldur()
         {
-            if (labelID.Text == "0")
-            {
-                MessageBox.Show("uyarı!");
-            }
-            else
-            {
-                labelID.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
-                tbAnyDesk.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
-                tbAnyDeskSifre.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
-                tbServer.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
-                tbServerAdi.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
-                tbServerSifresi.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
-                tbSQLAdi.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
-                tbSQLSifresi.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
-                tbSSO.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
-                tbNetsisSifresi.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
-            }        
+            labelID.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            tbAnyDesk.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            tbAnyDeskSifre.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
+            tbServer.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
+            tbServerAdi.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+            tbServerSifresi.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
+            tbSQLAdi.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
+            tbSQLSifresi.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
+            tbSSO.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
+            tbNetsisSifresi.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
         }
         private void temizle2()
         {
@@ -330,36 +327,40 @@ namespace DonanımTeknoloji
             }
             else if (comboBox1.Text == "Sil")
             {
+                TextboxKapat();
+                Doldur();
 
             }
             else if (comboBox1.Text == "Güncelle")
             {
-
+                TextboxAktif();
+                Doldur();
             }
         }
 
         private void cb_FirmaSifre_SelectedIndexChanged(object sender, EventArgs e)
         {
-                SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
-                DataSet ds = new DataSet();
-                baglanti.Open();
-                da.Fill(ds, "SifreTable");
-                dataGridView2.DataSource = ds.Tables[0];
-                baglanti.Close();
+           
+             SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
+             DataSet ds = new DataSet();
+             baglanti.Open();
+             da.Fill(ds, "SifreTable");
+             dataGridView2.DataSource = ds.Tables[0];
+             baglanti.Close();
 
-                temizle2();
+             temizle2();
 
-                labelID.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
-                tbAnyDesk.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
-                tbAnyDeskSifre.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
-                tbServer.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
-                tbServerAdi.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
-                tbServerSifresi.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
-                tbSQLAdi.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
-                tbSQLSifresi.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
-                tbSSO.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
-                tbNetsisSifresi.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
-            
+            //labelID.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            //tbAnyDesk.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            //tbAnyDeskSifre.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
+            //tbServer.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
+            //tbServerAdi.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
+            //tbServerSifresi.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
+            //tbSQLAdi.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
+            //tbSQLSifresi.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
+            //tbSSO.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
+            //tbNetsisSifresi.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
+
         }
     }
 }
