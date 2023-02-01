@@ -31,6 +31,10 @@ namespace DonanımTeknoloji
             tabloDoldur();
             tabloDoldur2();
 
+            radioButton1.Enabled = true;
+            radioButton2.Enabled = true;
+            radioButton3.Enabled = true;
+
             cb_FirmaAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cb_FirmaAdi.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cb_FirmaAdi.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -261,86 +265,32 @@ namespace DonanımTeknoloji
         //}
         private void btn_Uygula_Click(object sender, EventArgs e)
         {
-            if(comboBox1.Text == "Ekle")
-            {
-                komut = new SqlCommand("insert into SifreTable(FirmaAdi, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) values (@FirmaAdi, @AnyDesk, @AnyDeskSifre, @Server, @ServerAdi, @ServerSifre, @SQLAdi, @SQLSifre, SSO, NetsisSifre)", baglanti);
-                komut.Connection = baglanti;
-                komut.CommandType = CommandType.Text;
+            //if(comboBox1.Text == "Ekle")
+            //{
+            //    komut = new SqlCommand("insert into SifreTable(FirmaAdi, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) values (@FirmaAdi, @AnyDesk, @AnyDeskSifre, @Server, @ServerAdi, @ServerSifre, @SQLAdi, @SQLSifre, SSO, NetsisSifre)", baglanti);
+            //    komut.Connection = baglanti;
+            //    komut.CommandType = CommandType.Text;
 
-                komut.Parameters.AddWithValue("@FirmaAdi", cb_FirmaSifre.Text);
-                komut.Parameters.AddWithValue("@AnyDesk", tbAnyDesk.Text);
-                komut.Parameters.AddWithValue("@AnyDeskSifre", tbAnyDeskSifre.Text);
-                komut.Parameters.AddWithValue("@Server", tbServer.Text);
-                komut.Parameters.AddWithValue("@ServerAdi", tbServerAdi.Text);
-                komut.Parameters.AddWithValue("@ServerSifre", tbServerSifresi.Text);
-                komut.Parameters.AddWithValue("@SQLAdi", tbSQLAdi.Text);
-                komut.Parameters.AddWithValue("@SQLAdiSifre", tbSQLSifresi.Text);
-                komut.Parameters.AddWithValue("@SSO", tbSSO.Text);
-                komut.Parameters.AddWithValue("@NetsisSifre", tbNetsisSifresi.Text);
-                tabloDoldur2();
-            }
+            //    komut.Parameters.AddWithValue("@FirmaAdi", cb_FirmaSifre.Text);
+            //    komut.Parameters.AddWithValue("@AnyDesk", tbAnyDesk.Text);
+            //    komut.Parameters.AddWithValue("@AnyDeskSifre", tbAnyDeskSifre.Text);
+            //    komut.Parameters.AddWithValue("@Server", tbServer.Text);
+            //    komut.Parameters.AddWithValue("@ServerAdi", tbServerAdi.Text);
+            //    komut.Parameters.AddWithValue("@ServerSifre", tbServerSifresi.Text);
+            //    komut.Parameters.AddWithValue("@SQLAdi", tbSQLAdi.Text);
+            //    komut.Parameters.AddWithValue("@SQLAdiSifre", tbSQLSifresi.Text);
+            //    komut.Parameters.AddWithValue("@SSO", tbSSO.Text);
+            //    komut.Parameters.AddWithValue("@NetsisSifre", tbNetsisSifresi.Text);
+            //    tabloDoldur2();
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             tabloDoldur2();
         }
-
-        private void rb_Ekle_CheckedChanged(object sender, EventArgs e)
-        {
-            TextboxAktif();
-        }
-
-        private void rb_Sil_CheckedChanged(object sender, EventArgs e)
-        {
-            TextboxKapat();
-        }
-
-        private void rb_Güncelle_CheckedChanged(object sender, EventArgs e)
-        {
-            TextboxAktif();
-        }
-
-        private void BtnSec1_Click(object sender, EventArgs e)
-        {
-            SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
-            DataSet ds = new DataSet();
-            baglanti.Open();
-            da.Fill(ds, "SifreTable");
-            dataGridView2.DataSource = ds.Tables[0];
-            baglanti.Close();
-            temizle2();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox1.Text == "Ekle")
-            {
-                //if (dataGridView1.Rows.Count == 0 || (dataGridView1.Rows.Count > 0 && (dataGridView1.Rows[0].Cells[0].Value == null || dataGridView1.Rows[0].Cells[0].Value.ToString().Trim() == "")))
-                //{
-                //    TextboxAktif();
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Bu firma için ekleme işlemi yapılamaz.");
-                //}
-            }
-            else if (comboBox1.Text == "Sil")
-            {
-                TextboxKapat();
-                Doldur();
-
-            }
-            else if (comboBox1.Text == "Güncelle")
-            {
-                TextboxAktif();
-                Doldur();
-            }
-        }
-
         private void cb_FirmaSifre_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
+        {        
              SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
              DataSet ds = new DataSet();
              baglanti.Open();
@@ -348,19 +298,41 @@ namespace DonanımTeknoloji
              dataGridView2.DataSource = ds.Tables[0];
              baglanti.Close();
 
-             temizle2();
-
-            //labelID.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
-            //tbAnyDesk.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
-            //tbAnyDeskSifre.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
-            //tbServer.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
-            //tbServerAdi.Text = dataGridView2.CurrentRow.Cells[5].Value.ToString();
-            //tbServerSifresi.Text = dataGridView2.CurrentRow.Cells[6].Value.ToString();
-            //tbSQLAdi.Text = dataGridView2.CurrentRow.Cells[7].Value.ToString();
-            //tbSQLSifresi.Text = dataGridView2.CurrentRow.Cells[8].Value.ToString();
-            //tbSSO.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
-            //tbNetsisSifresi.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
-
+            temizle2();
+            if(dataGridView2.FirstDisplayedCell.Value == null)
+            {
+                radioButton1.Enabled = true;
+                radioButton2.Enabled = false;
+                radioButton3.Enabled = false;
+            }
+            else
+            {
+                radioButton1.Enabled = false;
+                radioButton2.Enabled = true;
+                radioButton3.Enabled = true;
+            }
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            temizle2();
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            TextboxAktif();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            TextboxKapat();
+            Doldur();
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            TextboxAktif();
+            Doldur();
+        }
+
     }
 }
