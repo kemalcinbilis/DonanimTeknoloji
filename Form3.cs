@@ -32,9 +32,9 @@ namespace DonanımTeknoloji
             tabloDoldur();
             tabloDoldur2();
 
-            radioButton1.Enabled = false;
-            radioButton2.Enabled = false;
-            radioButton3.Enabled = false;
+            rbEkle.Enabled = false;
+            rbSil.Enabled = false;
+            rbGüncelle.Enabled = false;
 
             cb_FirmaAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cb_FirmaAdi.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -181,12 +181,12 @@ namespace DonanımTeknoloji
             cb_FirmaSifre.Text = "";
             cb_FirmaSifre.Enabled = true;
             TextboxKapat();
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
-            radioButton3.Checked = false;
-            radioButton1.Enabled = false;
-            radioButton2.Enabled = false;
-            radioButton3.Enabled = false;
+            rbEkle.Checked = false;
+            rbSil.Checked = false;
+            rbGüncelle.Checked = false;
+            rbEkle.Enabled = false;
+            rbSil.Enabled = false;
+            rbGüncelle.Enabled = false;
         }
         private void btn_Arama_Click(object sender, EventArgs e)
         {
@@ -281,7 +281,7 @@ namespace DonanımTeknoloji
         //}
         private void btn_Uygula_Click(object sender, EventArgs e)
         {
-            if (radioButton1.Checked == true)
+            if (rbEkle.Checked == true)
             {
                 komut = new SqlCommand("INSERT INTO SifreTable(FirmaID, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) VALUES (@FirmaID, @AnyDesk, @AnyDeskSifre, @Server, @ServerAdi, @ServerSifre, @SQLAdi, @SQLSifre, @SSO, @NetsisSifre)", baglanti);
                 komut.Connection = baglanti;
@@ -303,43 +303,65 @@ namespace DonanımTeknoloji
                     komut.ExecuteNonQuery();
                     baglanti.Close();
                     MessageBox.Show("Kayıt başarılı!");
+                    temizle2();
+                    tabloDoldur2();
+                    cb_FirmaSifre.Text = "";
+                    rbEkle.Checked = false;
+                    rbSil.Checked = false;
+                    rbGüncelle.Checked = false;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Bağlantı Hatası: " + ex.Message);
                 }
-
             }
-            //if (radioButton1.Checked == true)
-            //{
-            //    komut = new SqlCommand("INSERT INTO SifreTable(FirmaID, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) VALUES ('@FirmaID','@AnyDesk','@AnyDeskSifre','@Server','@ServerAdi','@ServerSifre','@SQLAdi','@SQLSifre','@SSO','@NetsisSifre')", baglanti);
-            //    komut.Connection = baglanti;
-            //    komut.CommandType = CommandType.Text;
+            else if (rbSil.Checked == true)
+            {
+                komut = new SqlCommand("Delete from SifreTable Where FirmaID = "+ Convert.ToInt32(labelID.Text) + "", baglanti);
+                komut.Connection = baglanti;
+                komut.CommandType = CommandType.Text;
+                try
+                {
+                    baglanti.Open();
+                    komut.ExecuteNonQuery();
+                    baglanti.Close();
+                    MessageBox.Show("Silme işlemi başarılı!");
+                    temizle2();
+                    tabloDoldur2();
+                    cb_FirmaSifre.Text = "";
+                    rbEkle.Checked = false;
+                    rbSil.Checked = false;
+                    rbGüncelle.Checked = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bağlantı Hatası: " + ex.Message);
+                }
+            }
+            else if(rbGüncelle.Checked== true) 
+            {
+                komut = new SqlCommand("UPDATE SifreTable SET AnyDesk = '"+tbAnyDesk.Text+"', AnyDeskSifre = '"+tbAnyDeskSifre.Text+"', Server = '"+tbServer.Text+"', ServerAdi = '"+tbServerAdi.Text+"', ServerSifre = '"+tbServerSifresi.Text+"', SQLAdi = '"+tbSQLAdi.Text+"', SQLSifre = '"+tbSQLSifresi.Text+"',SSO = '"+tbSSO.Text+"', NetsisSifre='"+tbNetsisSifresi.Text+"'  WHERE FirmaID = "+ Convert.ToInt32(labelID.Text) + ";", baglanti);
+                komut.Connection = baglanti;
+                komut.CommandType = CommandType.Text;
 
-            //    komut.Parameters.AddWithValue("@FirmaID", Convert.ToInt32(labelID.Text));
-            //    komut.Parameters.AddWithValue("@AnyDesk", tbAnyDesk.Text);
-            //    komut.Parameters.AddWithValue("@AnyDeskSifre", tbAnyDeskSifre.Text);
-            //    komut.Parameters.AddWithValue("@Server", tbServer.Text);
-            //    komut.Parameters.AddWithValue("@ServerAdi", tbServerAdi.Text);
-            //    komut.Parameters.AddWithValue("@ServerSifre", tbServerSifresi.Text);
-            //    komut.Parameters.AddWithValue("@SQLAdi", tbSQLAdi.Text);
-            //    komut.Parameters.AddWithValue("@SQLSifre", tbSQLSifresi.Text);
-            //    komut.Parameters.AddWithValue("@SSO", tbSSO.Text);
-            //    komut.Parameters.AddWithValue("@NetsisSifre", tbNetsisSifresi.Text);
-            //    try
-            //    {
-            //        baglanti.Open();
-            //        komut.ExecuteNonQuery();
-            //        baglanti.Close();
-            //        MessageBox.Show("Kayıt başarılı!");
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(labelID.Text);
-            //        MessageBox.Show("Bağlantı Hatası: " + ex.Message);
-            //    }
-
-            //}
+                try
+                {
+                    baglanti.Open();
+                    komut.ExecuteNonQuery();
+                    baglanti.Close();
+                    MessageBox.Show("Güncelleme işlemi başarılı!");
+                    temizle2();
+                    tabloDoldur2();
+                    cb_FirmaSifre.Text = "";
+                    rbEkle.Checked = false;
+                    rbSil.Checked = false;
+                    rbGüncelle.Checked = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bağlantı Hatası: " + ex.Message);
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -358,26 +380,26 @@ namespace DonanımTeknoloji
             temizle2();
             if (dataGridView2.FirstDisplayedCell.Value == null)
             {
-                radioButton1.Enabled = true;
-                radioButton2.Enabled = false;
-                radioButton3.Enabled = false;
+                rbEkle.Enabled = true;
+                rbSil.Enabled = false;
+                rbGüncelle.Enabled = false;
             }
             else
             {
-                radioButton1.Enabled = false;
-                radioButton2.Enabled = true;
-                radioButton3.Enabled = true;
+                rbEkle.Enabled = false;
+                rbSil.Enabled = true;
+                rbGüncelle.Enabled = true;
             }
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
-            radioButton3.Checked = false;
+            rbEkle.Checked = false;
+            rbSil.Checked = false;
+            rbGüncelle.Checked = false;
             temizle2();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            radioButton2.Checked = false;
-            radioButton3.Checked = false;
+            rbSil.Checked = false;
+            rbGüncelle.Checked = false;
             temizle2();
             baglanti.Open();
             komut = new SqlCommand("select FirmaID From Firma Where FirmaAdi = '" + cb_FirmaSifre.Text + "'");
@@ -419,12 +441,12 @@ namespace DonanımTeknoloji
             cb_FirmaSifre.Text = "";
             cb_FirmaSifre.Enabled = true;
             TextboxKapat();
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
-            radioButton3.Checked = false;
-            radioButton1.Enabled = false;
-            radioButton2.Enabled = false;
-            radioButton3.Enabled = false;
+            rbEkle.Checked = false;
+            rbSil.Checked = false;
+            rbGüncelle.Checked = false;
+            rbEkle.Enabled = false;
+            rbSil.Enabled = false;
+            rbGüncelle.Enabled = false;
         }
     }
 }
