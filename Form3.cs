@@ -189,7 +189,8 @@ namespace DonanımTeknoloji
             radioButton3.Enabled = false;
         }
         private void btn_Arama_Click(object sender, EventArgs e)
-        {   if (Kontrol.Checked == true && KontrolUser.Checked == true)
+        {
+            if (Kontrol.Checked == true && KontrolUser.Checked == true)
             {
                 da = new SqlDataAdapter("Select ID, KullaniciAdi as 'Kullanıcı Adı', FirmaAdi as Firma, ModulAdi as Modül, GorusulenKisi as Yetkili, Tarih as Tarih, Aciklama as Açıklama, İslemDurumu as Durum from İslemEkrani Where KullaniciAdi = '" + cb_Danisman.Text + "' and FirmaAdi = '" + cb_FirmaAdi.Text + "' and Tarih between '" + dtp_BasTarih.Value.ToString("yyyy-MM-dd") + "' and '" + dtp_BitTarih.Value.ToString("yyyy-MM-dd") + "'", baglanti);
                 ds = new DataSet();
@@ -198,7 +199,7 @@ namespace DonanımTeknoloji
                 dataGridView1.DataSource = ds.Tables["İslemEkrani"];
                 baglanti.Close();
             }
-            else if (Kontrol.Checked == true) 
+            else if (Kontrol.Checked == true)
             {
                 da = new SqlDataAdapter("Select ID, KullaniciAdi as 'Kullanıcı Adı', FirmaAdi as Firma, ModulAdi as Modül, GorusulenKisi as Yetkili, Tarih as Tarih, Aciklama as Açıklama, İslemDurumu as Durum from İslemEkrani Where FirmaAdi = '" + cb_FirmaAdi.Text + "' and Tarih between '" + dtp_BasTarih.Value.ToString("yyyy-MM-dd") + "' and '" + dtp_BitTarih.Value.ToString("yyyy-MM-dd") + "'", baglanti);
                 ds = new DataSet();
@@ -215,7 +216,7 @@ namespace DonanımTeknoloji
                 da.Fill(ds, "İslemEkrani");
                 dataGridView1.DataSource = ds.Tables["İslemEkrani"];
                 baglanti.Close();
-            }         
+            }
         }
 
         private void btn_Sifirla_Click(object sender, EventArgs e)
@@ -266,7 +267,7 @@ namespace DonanımTeknoloji
                 else
                 {
                     row.DefaultCellStyle.BackColor = Color.YellowGreen;
-                }           
+                }
         }
         //private void btn_Ara_Click(object sender, EventArgs e)
         //{
@@ -280,30 +281,33 @@ namespace DonanımTeknoloji
         //}
         private void btn_Uygula_Click(object sender, EventArgs e)
         {
-            if (radioButton1.Checked == true) 
+            if (radioButton1.Checked == true)
             {
+                komut = new SqlCommand("INSERT INTO SifreTable(FirmaID, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) VALUES ('@FirmaID','@AnyDesk','@AnyDeskSifre','@Server','@ServerAdi','@ServerSifre','@SQLAdi','@SQLSifre','@SSO','@NetsisSifre')", baglanti);
+                komut.Connection = baglanti;
+                komut.CommandType = CommandType.Text;
+
+                komut.Parameters.AddWithValue("@FirmaID", Convert.ToInt32(labelID.Text));
+                komut.Parameters.AddWithValue("@AnyDesk", tbAnyDesk.Text);
+                komut.Parameters.AddWithValue("@AnyDeskSifre", tbAnyDeskSifre.Text);
+                komut.Parameters.AddWithValue("@Server", tbServer.Text);
+                komut.Parameters.AddWithValue("@ServerAdi", tbServerAdi.Text);
+                komut.Parameters.AddWithValue("@ServerSifre", tbServerSifresi.Text);
+                komut.Parameters.AddWithValue("@SQLAdi", tbSQLAdi.Text);
+                komut.Parameters.AddWithValue("@SQLSifre", tbSQLSifresi.Text);
+                komut.Parameters.AddWithValue("@SSO", tbSSO.Text);
+                komut.Parameters.AddWithValue("@NetsisSifre", tbNetsisSifresi.Text);
                 try
                 {
-                    komut = new SqlCommand("INSERT INTO SifreTable(FirmaID, AnyDesk, AnydeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) VALUES ('@FirmaID','@AnyDesk','@AnyDeskSifre','@Server','@ServerAdi','@ServerSifre','@SQLAdi','@SQLSifre','@SSO','@NetsisSifre')", baglanti);
-                    komut.Connection = baglanti;
-                    komut.CommandType = CommandType.Text;
-
-                    komut.Parameters.AddWithValue("@FirmaID", labelID.Text);
-                    komut.Parameters.AddWithValue("@AnyDesk", tbAnyDesk.Text);
-                    komut.Parameters.AddWithValue("@AnyDeskSifre", tbAnyDeskSifre.Text);
-                    komut.Parameters.AddWithValue("@Server", tbServer.Text);
-                    komut.Parameters.AddWithValue("@ServerAdi", tbServerAdi.Text);
-                    komut.Parameters.AddWithValue("@ServerSifre", tbServerSifresi.Text);
-                    komut.Parameters.AddWithValue("@SQLAdi", tbSQLAdi.Text);
-                    komut.Parameters.AddWithValue("@SQLSifre", tbSQLSifresi.Text);
-                    komut.Parameters.AddWithValue("@SSO", tbSSO.Text);
-                    komut.Parameters.AddWithValue("@NetsisSifre", tbNetsisSifresi.Text);
+                    baglanti.Open();
+                    komut.ExecuteNonQuery();
+                    baglanti.Close();
                     MessageBox.Show("Kayıt başarılı!");
-                    YeniIslem();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Bağlantı Hatası!");
+                    MessageBox.Show(labelID.Text);
+                    MessageBox.Show("Bağlantı Hatası: " + ex.Message);
                 }
 
             }
@@ -314,7 +318,7 @@ namespace DonanımTeknoloji
             tabloDoldur2();
         }
         private void cb_FirmaSifre_SelectedIndexChanged(object sender, EventArgs e)
-        {        
+        {
             SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
             DataSet ds = new DataSet();
             baglanti.Open();
@@ -323,7 +327,7 @@ namespace DonanımTeknoloji
             baglanti.Close();
 
             temizle2();
-            if(dataGridView2.FirstDisplayedCell.Value == null)
+            if (dataGridView2.FirstDisplayedCell.Value == null)
             {
                 radioButton1.Enabled = true;
                 radioButton2.Enabled = false;
@@ -351,7 +355,7 @@ namespace DonanımTeknoloji
             komut.Connection = baglanti;
             komut.CommandType = CommandType.Text;
             SqlDataReader reader = komut.ExecuteReader();
-            
+
             if (reader.Read())
             {
                 string firmaId = reader["FirmaID"].ToString();
@@ -360,7 +364,7 @@ namespace DonanımTeknoloji
             reader.Close();
             baglanti.Close();
             TextboxAktif();
-            cb_FirmaSifre.Enabled= false;
+            cb_FirmaSifre.Enabled = false;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
