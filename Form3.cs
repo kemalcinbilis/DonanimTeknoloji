@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DonanımTeknoloji
 {
@@ -31,9 +32,9 @@ namespace DonanımTeknoloji
             tabloDoldur();
             tabloDoldur2();
 
-            radioButton1.Enabled = true;
-            radioButton2.Enabled = true;
-            radioButton3.Enabled = true;
+            radioButton1.Enabled = false;
+            radioButton2.Enabled = false;
+            radioButton3.Enabled = false;
 
             cb_FirmaAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cb_FirmaAdi.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -173,6 +174,20 @@ namespace DonanımTeknoloji
             tbSSO.Clear();
             tbNetsisSifresi.Clear();
         }
+        private void YeniIslem()
+        {
+            temizle2();
+            tabloDoldur2();
+            cb_FirmaSifre.Text = "";
+            cb_FirmaSifre.Enabled = true;
+            TextboxKapat();
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            radioButton1.Enabled = false;
+            radioButton2.Enabled = false;
+            radioButton3.Enabled = false;
+        }
         private void btn_Arama_Click(object sender, EventArgs e)
         {   if (Kontrol.Checked == true && KontrolUser.Checked == true)
             {
@@ -265,24 +280,33 @@ namespace DonanımTeknoloji
         //}
         private void btn_Uygula_Click(object sender, EventArgs e)
         {
-            //if(comboBox1.Text == "Ekle")
-            //{
-            //    komut = new SqlCommand("insert into SifreTable(FirmaAdi, AnyDesk, AnyDeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) values (@FirmaAdi, @AnyDesk, @AnyDeskSifre, @Server, @ServerAdi, @ServerSifre, @SQLAdi, @SQLSifre, SSO, NetsisSifre)", baglanti);
-            //    komut.Connection = baglanti;
-            //    komut.CommandType = CommandType.Text;
+            if (radioButton1.Checked == true) 
+            {
+                try
+                {
+                    komut = new SqlCommand("INSERT INTO SifreTable(FirmaID, AnyDesk, AnydeskSifre, Server, ServerAdi, ServerSifre, SQLAdi, SQLSifre, SSO, NetsisSifre) VALUES ('@FirmaID','@AnyDesk','@AnyDeskSifre','@Server','@ServerAdi','@ServerSifre','@SQLAdi','@SQLSifre','@SSO','@NetsisSifre')", baglanti);
+                    komut.Connection = baglanti;
+                    komut.CommandType = CommandType.Text;
 
-            //    komut.Parameters.AddWithValue("@FirmaAdi", cb_FirmaSifre.Text);
-            //    komut.Parameters.AddWithValue("@AnyDesk", tbAnyDesk.Text);
-            //    komut.Parameters.AddWithValue("@AnyDeskSifre", tbAnyDeskSifre.Text);
-            //    komut.Parameters.AddWithValue("@Server", tbServer.Text);
-            //    komut.Parameters.AddWithValue("@ServerAdi", tbServerAdi.Text);
-            //    komut.Parameters.AddWithValue("@ServerSifre", tbServerSifresi.Text);
-            //    komut.Parameters.AddWithValue("@SQLAdi", tbSQLAdi.Text);
-            //    komut.Parameters.AddWithValue("@SQLAdiSifre", tbSQLSifresi.Text);
-            //    komut.Parameters.AddWithValue("@SSO", tbSSO.Text);
-            //    komut.Parameters.AddWithValue("@NetsisSifre", tbNetsisSifresi.Text);
-            //    tabloDoldur2();
-            //}
+                    komut.Parameters.AddWithValue("@FirmaID", labelID.Text);
+                    komut.Parameters.AddWithValue("@AnyDesk", tbAnyDesk.Text);
+                    komut.Parameters.AddWithValue("@AnyDeskSifre", tbAnyDeskSifre.Text);
+                    komut.Parameters.AddWithValue("@Server", tbServer.Text);
+                    komut.Parameters.AddWithValue("@ServerAdi", tbServerAdi.Text);
+                    komut.Parameters.AddWithValue("@ServerSifre", tbServerSifresi.Text);
+                    komut.Parameters.AddWithValue("@SQLAdi", tbSQLAdi.Text);
+                    komut.Parameters.AddWithValue("@SQLSifre", tbSQLSifresi.Text);
+                    komut.Parameters.AddWithValue("@SSO", tbSSO.Text);
+                    komut.Parameters.AddWithValue("@NetsisSifre", tbNetsisSifresi.Text);
+                    MessageBox.Show("Kayıt başarılı!");
+                    YeniIslem();
+                }
+                catch
+                {
+                    MessageBox.Show("Bağlantı Hatası!");
+                }
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -291,12 +315,12 @@ namespace DonanımTeknoloji
         }
         private void cb_FirmaSifre_SelectedIndexChanged(object sender, EventArgs e)
         {        
-             SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
-             DataSet ds = new DataSet();
-             baglanti.Open();
-             da.Fill(ds, "SifreTable");
-             dataGridView2.DataSource = ds.Tables[0];
-             baglanti.Close();
+            SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID, Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk,SifreTable.AnyDeskSifre as 'AnyDesk Şifresi',SifreTable.Server,SifreTable.ServerAdi as 'Server Adı',SifreTable.ServerSifre as 'Server Şifresi',SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO,SifreTable.NetsisSifre as 'Netsis Şifresi'from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID where Firma.FirmaAdi = '" + cb_FirmaSifre.Text + "'", baglanti);
+            DataSet ds = new DataSet();
+            baglanti.Open();
+            da.Fill(ds, "SifreTable");
+            dataGridView2.DataSource = ds.Tables[0];
+            baglanti.Close();
 
             temizle2();
             if(dataGridView2.FirstDisplayedCell.Value == null)
@@ -319,20 +343,55 @@ namespace DonanımTeknoloji
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            temizle2();
+            baglanti.Open();
+            komut = new SqlCommand("select FirmaID From Firma Where FirmaAdi = '" + cb_FirmaSifre.Text + "'");
+            komut.Connection = baglanti;
+            komut.CommandType = CommandType.Text;
+            SqlDataReader reader = komut.ExecuteReader();
+            
+            if (reader.Read())
+            {
+                string firmaId = reader["FirmaID"].ToString();
+                labelID.Text = firmaId;
+            }
+            reader.Close();
+            baglanti.Close();
             TextboxAktif();
+            cb_FirmaSifre.Enabled= false;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            temizle2();
             TextboxKapat();
             Doldur();
+            cb_FirmaSifre.Enabled = false;
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
+            temizle2();
             TextboxAktif();
             Doldur();
+            cb_FirmaSifre.Enabled = false;
         }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            temizle2();
+            tabloDoldur2();
+            cb_FirmaSifre.Text = "";
+            cb_FirmaSifre.Enabled = true;
+            TextboxKapat();
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            radioButton1.Enabled = false;
+            radioButton2.Enabled = false;
+            radioButton3.Enabled = false;
+        }
     }
 }

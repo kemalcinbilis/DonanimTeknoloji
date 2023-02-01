@@ -41,6 +41,7 @@ namespace DonanımTeknoloji
             this.lbl_ID = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -128,6 +129,7 @@ namespace DonanımTeknoloji
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.labelID);
             this.groupBox1.Controls.Add(this.lbl_IDText);
@@ -158,6 +160,16 @@ namespace DonanımTeknoloji
             this.groupBox1.Size = new System.Drawing.Size(1880, 347);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(464, 179);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(162, 53);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Yeni İşlem";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // groupBox2
             // 
@@ -799,5 +811,6 @@ namespace DonanımTeknoloji
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button button2;
     }
 }
