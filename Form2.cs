@@ -68,8 +68,8 @@ namespace DonanımTeknoloji
             cb_İslemDurumu.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cb_İslemDurumu.AutoCompleteSource = AutoCompleteSource.ListItems;
 
-            tabloDoldur();
-            tabloDoldur2();
+            TabloDoldur();
+            TabloDoldur2();
         }
         private void opennewform(object obj)
         {
@@ -120,7 +120,7 @@ namespace DonanımTeknoloji
 
             baglanti.Close();
         }
-        private void tabloDoldur()
+        private void TabloDoldur()
         {
             SqlDataAdapter da = new SqlDataAdapter("Select ID, FirmaAdi as Firma, ModulAdi as Modül, GorusulenKisi as Yetkili, Tarih, Aciklama as Açıklama, İslemDurumu as Durum from İslemEkrani  WHERE KullaniciAdi = '" + lbl_Durum.Text + "'", baglanti);
             DataSet ds = new DataSet();
@@ -129,7 +129,7 @@ namespace DonanımTeknoloji
             dataGridView1.DataSource = ds.Tables[0];
             baglanti.Close();
         }
-        private void tabloDoldur2()
+        private void TabloDoldur2()
         {
             SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk , SifreTable.AnyDeskSifre as 'AnyDesk Şifresi', SifreTable.Server, " +
                 "SifreTable.ServerAdi as 'Server Adı', SifreTable.ServerSifre as 'Server Şifresi', SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO, " +
@@ -165,7 +165,7 @@ namespace DonanımTeknoloji
                     baglanti.Close();
                     MessageBox.Show("Kayıt Başarılı");
                     temizle();
-                    tabloDoldur();
+                    TabloDoldur();
                 }
                 catch
                 {
@@ -181,7 +181,7 @@ namespace DonanımTeknoloji
         private void btn_YeniKayit_Click(object sender, EventArgs e)
         {
             temizle();
-            tabloDoldur();
+            TabloDoldur();
             cb_Firma.Text = "";
             dtp_BaslangicTarihi.Value = DateTime.Now;
             dtp_BitisTarihi.Value = DateTime.Now;
@@ -195,7 +195,6 @@ namespace DonanımTeknoloji
             tb_Aciklama.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             cb_İslemDurumu.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
         }
-
         private void btn_Güncelle_Click(object sender, EventArgs e)
         {
             if (Convert.ToInt32(lbl_ID.Text) != 0)
@@ -206,7 +205,7 @@ namespace DonanımTeknoloji
                 baglanti.Open();
                 komut.ExecuteNonQuery();
                 baglanti.Close();
-                tabloDoldur();
+                TabloDoldur();
                 temizle();
                 MessageBox.Show("Güncelleme başarılı.");
             }
@@ -275,7 +274,7 @@ namespace DonanımTeknoloji
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tabloDoldur2();
+            TabloDoldur2();
         }
     }
 }

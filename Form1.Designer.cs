@@ -79,6 +79,7 @@ namespace DonanımTeknoloji
             this.tb_Sifre.PasswordChar = '*';
             this.tb_Sifre.Size = new System.Drawing.Size(125, 27);
             this.tb_Sifre.TabIndex = 3;
+            this.tb_Sifre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_Sifre_KeyPress);
             // 
             // btn_Giris
             // 
@@ -93,7 +94,6 @@ namespace DonanımTeknoloji
             this.btn_Giris.Text = "Giriş";
             this.btn_Giris.UseVisualStyleBackColor = false;
             this.btn_Giris.Click += new System.EventHandler(this.btn_Giris_Click);
-            this.btn_Giris.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_GirisKeyDown);
             // 
             // lbl_Gonder
             // 
@@ -153,6 +153,7 @@ namespace DonanımTeknoloji
             this.Controls.Add(this.lbl_KullaniciAdi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş Ekranı ";

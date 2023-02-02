@@ -29,8 +29,9 @@ namespace DonanımTeknoloji
             //ModulleriGetir();
             FirmalariGetir();
             KullaniciGetir();
-            tabloDoldur();
-            tabloDoldur2();
+            TabloDoldur();
+            TabloDoldur2();
+            TabloDoldur3();
 
             rbEkle.Enabled = false;
             rbSil.Enabled = false;
@@ -59,6 +60,7 @@ namespace DonanımTeknoloji
             while (dr.Read())
             {
                 cb_Danisman.Items.Add(dr["KullaniciAdi"]);
+                cb_KullaniciNew.Items.Add(dr["KullaniciAdi"]);
             }
 
             baglanti.Close();
@@ -91,11 +93,13 @@ namespace DonanımTeknoloji
             {
                 cb_FirmaAdi.Items.Add(dr["FirmaAdi"]);
                 cb_FirmaSifre.Items.Add(dr["FirmaAdi"]);
+                cbFirmaUpdate.Items.Add(dr["FirmaAdi"]);
+                
             }
 
             baglanti.Close();
         }
-        private void tabloDoldur()
+        private void TabloDoldur()
         {
             SqlDataAdapter da = new SqlDataAdapter("Select ID, KullaniciAdi as Danışman, FirmaAdi as Firma, ModulAdi as Modül, GorusulenKisi as Yetkili, Tarih, Aciklama as Açıklama, İslemDurumu as Durum from İslemEkrani", baglanti);
             DataSet ds = new DataSet();
@@ -104,15 +108,24 @@ namespace DonanımTeknoloji
             dataGridView1.DataSource = ds.Tables[0];
             baglanti.Close();
         }
-        private void tabloDoldur2()
+        private void TabloDoldur2()
         {
             SqlDataAdapter da = new SqlDataAdapter("select Firma.FirmaID as ID,Firma.FirmaAdi as 'Firma Adı', SifreTable.AnyDesk as AnyDesk , SifreTable.AnyDeskSifre as 'AnyDesk Şifresi', SifreTable.Server, " +
             "SifreTable.ServerAdi as 'Server Adı', SifreTable.ServerSifre as 'Server Şifresi', SifreTable.SQLAdi as 'SQL Adı', SifreTable.SQLSifre as 'SQL Şifresi', SifreTable.SSO, " +
-            "SifreTable.NetsisSifre as 'Netsis Şifresi' from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID ", baglanti);
+            "SifreTable.NetsisSifre as 'Netsis Şifresi' from SifreTable INNER JOIN Firma ON SifreTable.FirmaID = Firma.FirmaID ORDER BY ID ", baglanti);
             DataSet ds = new DataSet();
             baglanti.Open();
             da.Fill(ds, "SifreTable");
             dataGridView2.DataSource = ds.Tables[0];
+            baglanti.Close();
+        }
+        private void TabloDoldur3()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("Select KullaniciAdi as 'Kullanıcı Adı', Sifre as 'Şifre' From Kullanici", baglanti);
+            DataSet ds = new DataSet();
+            baglanti.Open();
+            da.Fill(ds, "Kullanici");
+            dataGridView3.DataSource = ds.Tables[0];
             baglanti.Close();
         }
         private void temizle()
@@ -161,6 +174,12 @@ namespace DonanımTeknoloji
             tbSSO.Text = dataGridView2.CurrentRow.Cells[9].Value.ToString();
             tbNetsisSifresi.Text = dataGridView2.CurrentRow.Cells[10].Value.ToString();
         }
+        private void Doldur2()
+        {
+            lblIDNew.Text = dataGridView3.CurrentRow.Cells[0].Value.ToString();
+            tbKullaniciAdiNew2.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString();
+            tbSifreNew2.Text = dataGridView3.CurrentRow.Cells[2].Value.ToString();
+        }
         private void temizle2()
         {
             labelID.Text = "";
@@ -177,7 +196,7 @@ namespace DonanımTeknoloji
         private void YeniIslem()
         {
             temizle2();
-            tabloDoldur2();
+            TabloDoldur2();
             cb_FirmaSifre.Text = "";
             cb_FirmaSifre.Enabled = true;
             TextboxKapat();
@@ -221,7 +240,7 @@ namespace DonanımTeknoloji
 
         private void btn_Sifirla_Click(object sender, EventArgs e)
         {
-            tabloDoldur();
+            TabloDoldur();
         }
 
         private void Kontrol_CheckedChanged(object sender, EventArgs e)
@@ -304,7 +323,7 @@ namespace DonanımTeknoloji
                     baglanti.Close();
                     MessageBox.Show("Kayıt başarılı!");
                     temizle2();
-                    tabloDoldur2();
+                    TabloDoldur2();
                     cb_FirmaSifre.Text = "";
                     rbEkle.Checked = false;
                     rbSil.Checked = false;
@@ -327,7 +346,7 @@ namespace DonanımTeknoloji
                     baglanti.Close();
                     MessageBox.Show("Silme işlemi başarılı!");
                     temizle2();
-                    tabloDoldur2();
+                    TabloDoldur2();
                     cb_FirmaSifre.Text = "";
                     rbEkle.Checked = false;
                     rbSil.Checked = false;
@@ -351,7 +370,7 @@ namespace DonanımTeknoloji
                     baglanti.Close();
                     MessageBox.Show("Güncelleme işlemi başarılı!");
                     temizle2();
-                    tabloDoldur2();
+                    TabloDoldur2();
                     cb_FirmaSifre.Text = "";
                     rbEkle.Checked = false;
                     rbSil.Checked = false;
@@ -366,7 +385,7 @@ namespace DonanımTeknoloji
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tabloDoldur2();
+            TabloDoldur2();
         }
         private void cb_FirmaSifre_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -437,7 +456,7 @@ namespace DonanımTeknoloji
         private void button2_Click_1(object sender, EventArgs e)
         {
             temizle2();
-            tabloDoldur2();
+            TabloDoldur2();
             cb_FirmaSifre.Text = "";
             cb_FirmaSifre.Enabled = true;
             TextboxKapat();
@@ -447,6 +466,145 @@ namespace DonanımTeknoloji
             rbEkle.Enabled = false;
             rbSil.Enabled = false;
             rbGüncelle.Enabled = false;
+        }
+
+        private void btnKaydetNew_Click(object sender, EventArgs e)
+        {
+            komut = new SqlCommand("INSERT INTO Kullanici(KullaniciAdi, Sifre) Values (@KullaniciAdi, @Sifre)", baglanti);
+            komut.Connection = baglanti;
+            komut.CommandType = CommandType.Text;
+
+            komut.Parameters.AddWithValue("@KullaniciAdi", tbKullaniciAdiNew.Text);
+            komut.Parameters.AddWithValue("@Sifre", tbSifreNew.Text);
+            try
+            {
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                baglanti.Close();
+                MessageBox.Show("Kayıt başarılı!");
+                tbKullaniciAdiNew.Text ="";
+                tbSifreNew.Text = "";
+                TabloDoldur3();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bağlantı Hatası: " + ex.Message);
+            }
+        }
+
+        private void rbSilNew_CheckedChanged(object sender, EventArgs e)
+        {
+            tbKullaniciAdiNew2.Enabled = false; 
+            tbSifreNew2.Enabled = false;
+            Doldur2();
+            cb_KullaniciNew.Enabled = false;
+        }
+
+        private void rbGüncelleNew_CheckedChanged(object sender, EventArgs e)
+        {
+            tbKullaniciAdiNew2.Enabled = true;
+            tbSifreNew2.Enabled = true;
+            Doldur2();
+            cb_KullaniciNew.Enabled = false;
+        }
+
+        private void cb_KullaniciNew_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("select * from Kullanici where KullaniciAdi = '"+cb_KullaniciNew.Text+"'", baglanti);
+            DataSet ds = new DataSet();
+            baglanti.Open();
+            da.Fill(ds, "Kullanici");
+            dataGridView3.DataSource = ds.Tables[0];
+            baglanti.Close();
+        }
+
+        private void btnUygulaNew_Click(object sender, EventArgs e)
+        {
+            if(rbGüncelleNew.Checked)
+            {
+                komut = new SqlCommand("UPDATE Kullanici SET KullaniciAdi = '"+tbKullaniciAdiNew2.Text+"', Sifre = '"+tbSifreNew2.Text+"' WHERE ID=8;", baglanti);
+                komut.Connection = baglanti;
+                komut.CommandType = CommandType.Text;
+
+                try
+                {
+                    baglanti.Open();
+                    komut.ExecuteNonQuery();
+                    baglanti.Close();
+                    MessageBox.Show("Güncelleme işlemi başarılı!");
+                    TabloDoldur3();
+                    cb_KullaniciNew.Text = "";
+                    tbKullaniciAdiNew2.Text = "";
+                    tbSifreNew2.Text = "";
+                    rbGüncelleNew.Checked = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bağlantı Hatası: " + ex.Message);
+                }
+            }
+            else if(rbSilNew.Checked)
+            {
+                komut = new SqlCommand("Delete Kullanici Where ID = "+lblIDNew.Text+"", baglanti);
+                komut.Connection = baglanti;
+                komut.CommandType = CommandType.Text;
+                try
+                {
+                    baglanti.Open();
+                    komut.ExecuteNonQuery();
+                    baglanti.Close();
+                    MessageBox.Show("Silme işlemi başarılı!");
+                    TabloDoldur3();
+                    cb_KullaniciNew.Text = "";
+                    tbKullaniciAdiNew2.Text = "";
+                    tbSifreNew2.Text = "";
+                    rbSilNew.Checked = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bağlantı Hatası: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnYeni_Click(object sender, EventArgs e)
+        {
+            cb_KullaniciNew.Enabled = true;
+            cb_KullaniciNew.Text = "";
+            rbGüncelleNew.Checked = false;
+            rbSilNew.Checked = false;
+            tbKullaniciAdiNew2.Text = "";
+            tbSifreNew2.Text = "";
+        }
+
+        private void tbSifreNew2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbSifreNew_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
